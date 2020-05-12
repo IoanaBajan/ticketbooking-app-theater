@@ -27,9 +27,6 @@ public class User extends Theater{
 
     @Override
     public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return " username : '" + username + '\'';
     }
 }

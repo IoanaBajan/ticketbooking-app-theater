@@ -1,28 +1,30 @@
 package service;
 
 import model.Client;
-import repository.ClientRepository;
+import model.User;
+import repository.StudentRepository;
 
 import java.util.Optional;
 
 public class LoginService {
 
-    public boolean login(Client client) {
-        ClientRepository clientRepository = ClientRepository.getInstance();
-        Optional<Client> c = clientRepository.findUserByUsername(client.getUsername());
-
-        if(c.isPresent()) {
-            Client clt = c.get();
-            return clt.getPassword().equals(client.getPassword());
-        }
+    public boolean login(User user) {
+        StudentRepository studentRepository = StudentRepository.getInstance();
+////        Optional<Client> c = studentRepository.findUserByUsername(client.getUsername());
+//
+//        if(c.isPresent()) {
+//            Client clt = c.get();
+//            return clt.getPassword().equals(client.getPassword());
+//        }
 
         return false;
     }
-
-    public void register(Client client) {
-        ClientRepository clientRepository = ClientRepository.getInstance();
-        clientRepository.addClient(client);
-    }
+//
+//    public void register(Object client) {
+//        ClientRepository clientRepository = ClientRepository.getInstance();
+////        if(cl)
+//        clientRepository.addClient(client);
+//    }
 
     public static LoginService getInstance() {
         return SingletonHolder.INSTANCE;

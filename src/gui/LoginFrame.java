@@ -1,8 +1,10 @@
 package gui;
 
 import model.Client;
+import model.User;
 import service.InformationService;
 import service.LoginService;
+//import service.LoginService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,13 +30,20 @@ public class LoginFrame extends JFrame {
     private JButton register = new JButton("Register");
     private JButton makeaccount = new JButton("Make account");
     private JButton show = new JButton("Show clients");
+    private JTabbedPane tabbedPane1;
+    private JPanel Login;
+    private JPanel Admin;
+    private JPanel Info;
+    private JPanel Tickets;
 
     public LoginFrame() {
-        setLayout(new GridLayout(3, 1));
-
-        add(p1);
-        add(p2);
-        add(p3);
+//
+//        tabbedPane1.addTab("Login",p1);
+//        tabbedPane1.addTab("Login",p2);
+//        tabbedPane1.setBounds(50,50,200,200);
+//        tabbedPane1.setLayout(new GridLayout(3, 1));
+//
+//        tabbedPane1.setVisible(true);
 
         p1.add(e1);
         p1.add(textField1);
@@ -57,11 +66,11 @@ public class LoginFrame extends JFrame {
         String username = textField1.getText();
         String password = textField2.getText();
 
-        Client client = new Client(username, password);
+        User user = new User(username, password);
 
         LoginService service = LoginService.getInstance();
 
-        if (service.login(client)) {
+        if (service.login(user)) {
             JOptionPane.showMessageDialog(null, "Login reusit!");
             setVisible(false);
         } else {
@@ -108,11 +117,11 @@ public class LoginFrame extends JFrame {
         String username = textField3.getText();
         String password = textField4.getText();
 
-        Client client = new Client(username, password);
+        User user = new User(username, password);
         LoginService service = LoginService.getInstance();
         InformationService service1 = InformationService.getInstance();
 
-        makeaccount.addActionListener(ev -> service.register(client));
+//        makeaccount.addActionListener(ev -> service.register(client));
 //        show.addActionListener(ev ->service1.showClients());
 //        setVisible(false);
 

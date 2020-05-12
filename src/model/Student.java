@@ -1,12 +1,13 @@
 package model;
 
 public class Student extends Client {
-    private int studenId;
-    public Student(String username, String password) {
-        super(username, password);
+    private int studentIdNo;
+    public Student(String username, String password,String firstName, int age,int studentIdNo) {
+        super(username, password,firstName, age);
+        this.studentIdNo = studentIdNo;
     }
     public String toString() {
-        return "Student{" + super.toString()+
-                '}';
+        return "Student " + super.toString()+
+                "  Numar id " +studentIdNo;
     }
 }

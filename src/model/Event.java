@@ -16,11 +16,9 @@ public class Event extends Theater implements Comparable<Event> {
     @Override
     public String toString() {
         SimpleDateFormat dt1 = new SimpleDateFormat("dd/MM/yyyy");
-        return "Event{" +
-                "date=" + dt1.format(date) +
-                ", name='" + name + '\'' +
-                ", maxNumberSeats=" + maxNumberSeats +
-                '}';
+        return  " date: " + dt1.format(date) +
+                "  name: '" + name + '\'' +
+                "  maxNumberSeats " + maxNumberSeats;
     }
 
     public void setDate(Date date) {
@@ -40,7 +38,7 @@ public class Event extends Theater implements Comparable<Event> {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         try {
             this.date = dateFormat.parse(data);
-            System.out.println(this.date);
+//            System.out.println(this.date);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -52,9 +50,9 @@ public class Event extends Theater implements Comparable<Event> {
     @Override
     public int compareTo(Event ev) {
         SimpleDateFormat dtf = new SimpleDateFormat("dd/MM/yyyy");
-       Date now = new Date();
-        ev.setDate(now);
-        return (now.compareTo(this.getDate()));
+        Date date1 = ev.getDate();
+        Date date2 = this.getDate();
+        return (date1.compareTo(date2));
     }
 
 }

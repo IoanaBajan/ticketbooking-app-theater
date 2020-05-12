@@ -6,5 +6,9 @@ public class Concert extends Event {
     public Concert(String date, String name, int maxNumberSeats) {
         super(date, name, maxNumberSeats);
     }
-//    public void payment(int )
+
+    @Override
+    public String toString() {
+        return "Concert " + super.toString();
+    }
 }
