@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #88465f;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RegisterController">
+    <children>
+        <Pane layoutX="300.0" layoutY="10.0" prefHeight="380.0" prefWidth="286.0" style="-fx-background-color: #72B69C;">
+            <children>
+                <Label alignment="CENTER" contentDisplay="TOP" layoutX="74.0" layoutY="14.0" prefHeight="67.0" prefWidth="158.0" text="Registration Page" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Bookman Old Style" size="18.0" />
+                    </font>
+                    <effect>
+                        <Glow level="0.0" />
+                    </effect>
+                </Label>
+                <Label alignment="CENTER" layoutX="-3.0" layoutY="100.0" prefHeight="17.0" prefWidth="149.0" text="student id number" textFill="#fffbfb">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="71.0" layoutY="149.0" prefHeight="17.0" prefWidth="149.0" text="password" textAlignment="CENTER" textFill="#ffffff">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Button layoutX="134.0" layoutY="334.0" mnemonicParsing="false" onMouseClicked="#register" text="next" textFill="#b20a5e" />
+            <Label alignment="CENTER" layoutX="73.0" layoutY="211.0" prefHeight="17.0" prefWidth="139.0" text="First Name" textFill="#fffcfc">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="129.0" layoutY="270.0" prefHeight="17.0" prefWidth="87.0" text="Age" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            </children>
+        </Pane>
+        <ImageView fitHeight="133.0" fitWidth="131.0" layoutX="85.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@theater.png" />
+            </image></ImageView>
+    </children>
+</AnchorPane>

@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="ProiectMagic">
+    <output-path>$PROJECT_DIR$/out/artifacts/ProiectMagic</output-path>
+    <root id="root">
+      <element id="archive" name="ProiectMagic.jar">
+        <element id="module-output" name="ProiectMagic" />
+      </element>
+    </root>
+  </artifact>
+</component>

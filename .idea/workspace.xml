@@ -2,80 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d69bf9f7-4d1b-4272-af51-73b853dfbe31" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/managers/DBConectionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/LoginService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/ReducedTickets.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/SortService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/Tickets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ProiectMagic.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_11_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_11_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_11_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_11_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_11_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_11_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/RegisterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main_activity.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/register.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/register_student.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/theater.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProiectMagic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProiectMagic.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/gui/LoginFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/main/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/model/Admin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/model/Adult.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/model/CharityEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/model/Child.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/model/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/model/Concert.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/model/Event.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/model/Student.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/model/Theater.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/model/TheaterPlay.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/repository/AdultRepository$SingletonHolder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/repository/AdultRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/repository/CharityEventRepository$SingletonHolder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/repository/CharityEventRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/repository/ChildRepository$SingletonHolder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/repository/ChildRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/repository/ConcertRepository$SingletonHolder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/repository/ConcertRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/repository/StudentRepository$SingletonHolder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/repository/StudentRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/repository/TheaterPlaysRepository$SingletonHolder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/repository/TheaterPlaysRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/service/BuyService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/service/CalculatePrice.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/service/InformationService$SingletonHolder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/service/InformationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/service/LoginService$SingletonHolder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/service/LoginService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/service/ReducedTickets.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/service/Tickets.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectMagic/service/calculateFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/LoginFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/LoginFrame.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/LoginFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ShowInfo.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/ShowInfo.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ShowInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/ShowInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Adult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Adult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/CharityEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CharityEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Child.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Concert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Concert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Theater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Theater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/TheaterPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/TheaterPlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/AdultRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/AdultRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/CharityEventRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/CharityEventRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/ChildRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/ChildRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/ConcertRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/ConcertRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/StudentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/TheaterPlaysRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/TheaterPlaysRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/BuyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/BuyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/CalculatePrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/CalculatePrice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/InformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/InformationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/LoginService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/ReducedTickets.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/SortService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/Tickets.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/calculateFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/calculateFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/LoginFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/ShowInfo.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/ShowInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +36,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="JavaFXApplication" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -93,13 +45,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/resources/login.fxml" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1aG9ghdH3pnNLLFUNTTOVk3buo5" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.Annotations" value="true" />
     <property name="Repository.Attach.JavaDocs" value="true" />
@@ -108,15 +67,20 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/javafx-sdk-11.0.2/lib" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/main/java/gui/login.fxml" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Anul 2\pao\ticketbooking-app-theater\src\main\resources" />
       <recent name="D:\Anul 2\pao\ticketbooking-app-theater\src\main\java\main" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Anul 2\pao\ticketbooking-app-theater\src\main\resources" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="service" />
@@ -124,6 +88,22 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
+    <configuration name="Login" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="gui.Login" />
+      <module name="ProiectMagic" />
+      <option name="VM_PARAMETERS" value="--module-path \Downloads\javafx-sdk-11\lib --add-modules javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LoginService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="service.LoginService" />
       <module name="ProiectMagic" />
@@ -140,9 +120,23 @@
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="ProiectMagic" />
+      <option name="VM_PARAMETERS" value="--module-path \Downloads\javafx-sdk-11.0.2\lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShowInfo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.ShowInfo" />
+      <module name="ProiectMagic" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -188,11 +182,14 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Login" />
       <item itemvalue="Application.LoginService" />
       <item itemvalue="Application.Theater" />
+      <item itemvalue="Application.ShowInfo" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ShowInfo" />
         <item itemvalue="Application.Theater" />
         <item itemvalue="Application.LoginService" />
       </list>
@@ -209,89 +206,134 @@
       <option name="presentableId" value="Default" />
       <updated>1586351176965</updated>
     </task>
+    <task id="LOCAL-00001" summary="database connection">
+      <created>1589408505235</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589408505235</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="database connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="database connection" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="722" y="73" key="#Auto_Import" timestamp="1589460928863">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="722" y="73" key="#Auto_Import/0.0.1536.824@0.0.1536.824" timestamp="1589460928863" />
+    <state x="485" y="82" key="#Gui" timestamp="1589448543441">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="485" y="82" key="#Gui/0.0.1536.824@0.0.1536.824" timestamp="1589448543441" />
     <state x="361" y="70" key="#Inspections" timestamp="1589356015663">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="70" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1589356015663" />
+    <state x="-6" y="0" width="781" height="824" key="#Project_Structure" timestamp="1589448586617">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="-6" y="0" width="781" height="824" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1589448586617" />
+    <state x="102" y="85" key="#ShowInfo" timestamp="1589411055907">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="102" y="85" key="#ShowInfo/0.0.1536.824@0.0.1536.824" timestamp="1589411055907" />
     <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1589403676790">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1589403676790" />
-    <state x="0" y="49" width="1089" height="775" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589390860665">
+    <state x="-6" y="0" width="836" height="662" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589447673290">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="0" y="49" width="1089" height="775" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1589390860665" />
-    <state x="190" y="99" key="#com.intellij.ide.util.MemberChooser" timestamp="1589406351252">
+    <state x="-6" y="0" width="836" height="662" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1589447673290" />
+    <state x="166" y="117" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1589448541873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="190" y="99" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1589406351252" />
+    <state x="166" y="117" key="#com.intellij.ide.macro.MacrosDialog/0.0.1536.824@0.0.1536.824" timestamp="1589448541873" />
+    <state x="190" y="99" key="#com.intellij.ide.util.MemberChooser" timestamp="1589461316364">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="190" y="99" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1589461316364" />
     <state x="116" y="191" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1586353563052">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="116" y="191" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1586353563052" />
-    <state x="110" y="104" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1589391250760">
+    <state x="228" y="138" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1589443679019">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="110" y="104" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1536.824@0.0.1536.824" timestamp="1589391250760" />
+    <state x="228" y="138" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1589443679019" />
+    <state x="110" y="104" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1589441243708">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="110" y="104" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1536.824@0.0.1536.824" timestamp="1589441243708" />
     <state x="439" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1589303196474">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="439" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1589303196474" />
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589306538051">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589455106591">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1589306538051" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1589455106591" />
+    <state x="216" y="200" key="#com.intellij.tools.ToolEditorDialog" timestamp="1589446683288">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="216" y="200" key="#com.intellij.tools.ToolEditorDialog/0.0.1536.824@0.0.1536.824" timestamp="1589446683288" />
     <state x="209" y="6" key="CommitChangelistDialog2" timestamp="1589408502931">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="209" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589408502931" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1589390619036">
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1589444941952">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1589390619036" />
-    <state width="1493" height="216" key="GridCell.Tab.0.bottom" timestamp="1589408414245">
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1589444941952" />
+    <state x="267" y="54" key="FileChooserDialogImpl" timestamp="1589448390924">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="216" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589408414245" />
-    <state width="1493" height="216" key="GridCell.Tab.0.center" timestamp="1589408414245">
+    <state x="267" y="54" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1589448390924" />
+    <state width="1493" height="259" key="GridCell.Tab.0.bottom" timestamp="1589478788722">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="216" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589408414245" />
-    <state width="1493" height="216" key="GridCell.Tab.0.left" timestamp="1589408414244">
+    <state width="1493" height="259" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589478788722" />
+    <state width="1493" height="259" key="GridCell.Tab.0.center" timestamp="1589478788721">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="216" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589408414244" />
-    <state width="1493" height="216" key="GridCell.Tab.0.right" timestamp="1589408414245">
+    <state width="1493" height="259" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589478788721" />
+    <state width="1493" height="259" key="GridCell.Tab.0.left" timestamp="1589478788721">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="216" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589408414245" />
-    <state width="1493" height="260" key="GridCell.Tab.1.bottom" timestamp="1589379427211">
+    <state width="1493" height="259" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589478788721" />
+    <state width="1493" height="259" key="GridCell.Tab.0.right" timestamp="1589478788722">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589379427211" />
-    <state width="1493" height="260" key="GridCell.Tab.1.center" timestamp="1589379427211">
+    <state width="1493" height="259" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589478788722" />
+    <state width="1493" height="259" key="GridCell.Tab.1.bottom" timestamp="1589478788724">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1589379427211" />
-    <state width="1493" height="260" key="GridCell.Tab.1.left" timestamp="1589379427211">
+    <state width="1493" height="259" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589478788724" />
+    <state width="1493" height="259" key="GridCell.Tab.1.center" timestamp="1589478788722">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1589379427211" />
-    <state width="1493" height="260" key="GridCell.Tab.1.right" timestamp="1589379427211">
+    <state width="1493" height="259" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1589478788722" />
+    <state width="1493" height="259" key="GridCell.Tab.1.left" timestamp="1589478788722">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1589379427211" />
+    <state width="1493" height="259" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1589478788722" />
+    <state width="1493" height="259" key="GridCell.Tab.1.right" timestamp="1589478788723">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="259" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1589478788723" />
     <state x="429" y="127" key="GuiDesigner.FormSource.Dialog" timestamp="1589208119334">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="429" y="127" key="GuiDesigner.FormSource.Dialog/0.0.1536.824@0.0.1536.824" timestamp="1589208119334" />
-    <state x="277" y="0" key="SettingsEditor" timestamp="1589390944011">
+    <state x="-6" y="0" width="914" height="824" key="SettingsEditor" timestamp="1589448392899">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1589390944011" />
+    <state x="-6" y="0" width="914" height="824" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1589448392899" />
     <state x="490" y="154" width="540" height="524" key="StructurePopup" timestamp="1586455785469">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -300,10 +342,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="647" y="206" key="UIDesigner.ListEditorDialog/0.0.1536.824@0.0.1536.824" timestamp="1589208761273" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1589396209607">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1589547400211">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1589396209607" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1589547400211" />
     <state x="526" y="305" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1589390935963">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -316,14 +358,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="555" y="293" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog/0.0.1536.824@0.0.1536.824" timestamp="1589208221173" />
+    <state x="209" y="114" key="new project wizard" timestamp="1589443819653">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="114" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1589443819653" />
     <state x="511" y="40" key="refactoring.ChangeSignatureDialog" timestamp="1589406734828">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="511" y="40" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1589406734828" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1589310792425">
+    <state x="425" y="187" key="run.anything.popup" timestamp="1589471587687">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1589310792425" />
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1589471587687" />
     <state x="430" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1589401096863">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

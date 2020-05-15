@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color:  #72B69C;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoginController">
+    <children>
+        <Pane layoutX="300.0" layoutY="10.0" prefHeight="380.0" prefWidth="286.0" style="-fx-background-color:#88465f;">
+            <children>
+                <Label alignment="CENTER" contentDisplay="TOP" layoutX="74.0" layoutY="14.0" prefHeight="67.0" prefWidth="138.0" text="Login" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Bookman Old Style" size="22.0" />
+                    </font>
+               <effect>
+                  <Glow level="0.0" />
+               </effect>
+                </Label>
+                <TextField id="tf_username" fx:id="tf_username" layoutX="69.0" layoutY="127.0" prefHeight="25.0" prefWidth="149.0" />
+                <Label alignment="CENTER" layoutX="69.0" layoutY="92.0" prefHeight="17.0" prefWidth="149.0" text="username" textFill="#fffbfb">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="69.0" layoutY="160.0" prefHeight="17.0" prefWidth="149.0" text="password" textAlignment="CENTER" textFill="#ffffff">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <PasswordField fx:id="tf_password" layoutX="69.0" layoutY="190.0" />
+                <Button fx:id="tf_register" layoutX="212.0" layoutY="320.0" mnemonicParsing="false" onMouseClicked="#register" text="register" textFill="#b20a5e" />
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="310.0" prefHeight="20.0" prefWidth="168.0" text="Don't have an account" textFill="#f8f8f8">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+               <effect>
+                  <Glow level="0.57" />
+               </effect>
+                </Label>
+                <Label layoutX="108.0" layoutY="323.0" text="yet?" textFill="#fff9f9">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+               <effect>
+                  <Glow level="0.7" />
+               </effect>
+                </Label>
+            <Button fx:id="login" layoutX="69.0" layoutY="248.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="25.0" prefWidth="149.0" text="Log in" textFill="#b20a5e" />
+            </children>
+        </Pane>
+      <ImageView fitHeight="133.0" fitWidth="131.0" layoutX="85.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@theater.png" />
+         </image></ImageView>
+    </children>
+</AnchorPane>
