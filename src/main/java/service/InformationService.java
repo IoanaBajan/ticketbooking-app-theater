@@ -1,6 +1,12 @@
 package service;
 
+import model.CharityEvent;
+import model.Concert;
+import model.Event;
+import model.TheaterPlay;
 import repository.*;
+
+import java.util.ArrayList;
 
 public class InformationService {
     public void showStudents(){
@@ -22,23 +28,32 @@ public class InformationService {
                 System.out.println(childRepository.getChildren().get(i));
             }
     }
-    public void showPlays() {
+    public ArrayList<TheaterPlay> showPlays() {
         TheaterPlaysRepository theaterPlayRepository = TheaterPlaysRepository.getInstance();
+        ArrayList<TheaterPlay> plays = new ArrayList<> ();
         for (int i = 0; i < (theaterPlayRepository.getPlays()).size(); i++) {
-            System.out.println(theaterPlayRepository.getPlays().get(i).toString());
+            plays.add(theaterPlayRepository.getPlays().get(i));
         }
+        return plays;
     }
-    public void showCharityEvents() {
+
+    public ArrayList<CharityEvent> showCharityEvents() {
         CharityEventRepository charityEventRepository = CharityEventRepository.getInstance();
+
+        ArrayList<CharityEvent> charity = new ArrayList<> ();
         for (int i = 0; i < (charityEventRepository.getCharityEvents()).size(); i++) {
-            System.out.println(charityEventRepository.getCharityEvents().get(i).toString());
+            charity.add(charityEventRepository.getCharityEvents().get(i));
         }
+        return charity;
     }
-    public void showConcerts() {
+    public ArrayList<Concert> showConcerts() {
         ConcertRepository concertRepository = ConcertRepository.getInstance();
+
+        ArrayList<Concert> concerts = new ArrayList<> ();
         for (int i = 0; i < (concertRepository.getConcerts()).size(); i++) {
-            System.out.println(concertRepository.getConcerts().get(i).toString());
+            concerts.add(concertRepository.getConcerts().get(i));
         }
+        return concerts;
     }
     public static InformationService getInstance() {
         return InformationService.SingletonHolder.INSTANCE;

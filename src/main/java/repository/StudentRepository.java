@@ -41,7 +41,7 @@ public class StudentRepository {
         }
     }
     public static Student findUserInDB(String username) {
-        String sql = "SELECT * FROM Adults WHERE username = ?";
+        String sql = "SELECT * FROM students WHERE username = ?";
 
         try(
                 Connection con = DBConectionManager.getInstance().createConection();
@@ -52,7 +52,6 @@ public class StudentRepository {
             ResultSet set = statement.executeQuery();
             set.next();
 
-//            int i = set.getInt("id");
             String u = set.getString("username");
             String p = set.getString("password");
             String fn = set.getString("first_name");

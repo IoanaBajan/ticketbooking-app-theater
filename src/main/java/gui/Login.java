@@ -24,7 +24,7 @@ public class Login extends Application {
             e.printStackTrace();
         }
 
-        primaryStage.setTitle("Login Page");
+        primaryStage.setTitle("Ticket Booking App");
         assert root != null;
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();

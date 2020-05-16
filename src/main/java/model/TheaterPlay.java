@@ -7,6 +7,14 @@ public class TheaterPlay extends Event {
     private final String actors;
     public int soldout;
 
+    public String getDirector() {
+        return director;
+    }
+
+    public String getActors() {
+        return actors;
+    }
+
     public TheaterPlay(String date, String name, int maxNumberSeats, String director, String actors) {
         super(date, name, maxNumberSeats);
         this.director = director;
@@ -19,4 +27,5 @@ public class TheaterPlay extends Event {
                 " director " + director + '\'' +
                 " actors " + actors + '\'';
     }
+
 }

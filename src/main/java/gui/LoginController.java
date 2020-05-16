@@ -33,7 +33,22 @@ public class LoginController implements Initializable {
 
         User user = new User(username,password);
         LoginService L= new LoginService();
-        if(L.login(user)) System.out.println("Login Reusit");
+        if(L.login(user)) {
+            System.out.println("Login Reusit");
+            Parent view2 = null;
+            try {
+                view2 = FXMLLoader.load(getClass().getResource("/main_activity.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.setScene(new Scene(view2,1200,700));
+            stage.setTitle("Home");
+            stage.show();
+
+        }
         else System.out.println("login nereusit");
     }
     @FXML
@@ -49,6 +64,7 @@ public class LoginController implements Initializable {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         stage.setScene(new Scene(view2));
+        stage.setTitle("Register");
         stage.show();
 
     }

@@ -12,9 +12,9 @@ public class CharityEventRepository {
     }
 
     private CharityEventRepository() {
-        charityEvents.add(new CharityEvent("03/03/2020","Piesa de teatru1",100));
-        charityEvents.add(new CharityEvent("08/08/2020","Piesa de teatru2",80));
-        charityEvents.add(new CharityEvent("01/01/2020","Piesa de teatru3",80));
+        charityEvents.add(new CharityEvent("2020-03-02","Piesa de teatru1",100));
+        charityEvents.add(new CharityEvent("2020-03-03","Piesa de teatru2",80));
+        charityEvents.add(new CharityEvent("2020-03-01","Piesa de teatru3",80));
     }
     public static void addCharityEvent(CharityEvent e) {
         charityEvents.add(e);

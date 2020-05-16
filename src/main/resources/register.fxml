@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #88465f;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RegisterController">
+<AnchorPane fx:id="anchPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #88465f;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RegisterController">
     <children>
         <Pane layoutX="300.0" layoutY="10.0" prefHeight="380.0" prefWidth="286.0" style="-fx-background-color: #72B69C;">
             <children>
@@ -18,31 +18,27 @@
                         <Glow level="0.0" />
                     </effect>
                 </Label>
-                <TextField id="tf_username" fx:id="tf_username" layoutX="69.0" layoutY="90.0" prefHeight="25.0" prefWidth="149.0" />
-                <Label alignment="CENTER" layoutX="68.0" layoutY="57.0" prefHeight="17.0" prefWidth="149.0" text="username" textFill="#fffbfb">
+                <TextField id="tf_username" fx:id="tf_username" layoutX="72.0" layoutY="86.0" prefHeight="25.0" prefWidth="149.0" />
+                <Label alignment="CENTER" layoutX="72.0" layoutY="57.0" prefHeight="17.0" prefWidth="149.0" text="username" textFill="#fffbfb">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutX="71.0" layoutY="122.0" prefHeight="17.0" prefWidth="149.0" text="password" textAlignment="CENTER" textFill="#ffffff">
+                <Label alignment="CENTER" layoutX="72.0" layoutY="120.0" prefHeight="17.0" prefWidth="149.0" text="password" textAlignment="CENTER" textFill="#ffffff">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <PasswordField id="tf_password" fx:id="tf_password" layoutX="71.0" layoutY="148.0" />
-                <Button layoutX="134.0" layoutY="334.0" mnemonicParsing="false" onMouseClicked="#register" text="next" textFill="#b20a5e" />
-            <Label alignment="CENTER" layoutX="73.0" layoutY="190.0" prefHeight="17.0" prefWidth="139.0" text="First Name" textFill="#fffcfc">
+                <PasswordField id="tf_password" fx:id="tf_password" layoutX="72.0" layoutY="151.0" />
+                <Button fx:id="register" layoutX="114.0" layoutY="334.0" mnemonicParsing="false" onMouseClicked="#register" text="next" textFill="#b20a5e" />
+            <Label alignment="CENTER" layoutX="77.0" layoutY="190.0" prefHeight="17.0" prefWidth="139.0" text="First Name" textFill="#fffcfc">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_first_name" layoutX="71.0" layoutY="216.0" />
-            <Label layoutX="39.0" layoutY="281.0" prefHeight="17.0" prefWidth="87.0" text="I am a" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <ChoiceBox layoutX="107.0" layoutY="279.0" prefHeight="25.0" prefWidth="131.0" />
+            <TextField fx:id="tf_first_name" layoutX="72.0" layoutY="218.0" />
+            <Label layoutX="136.0" layoutY="254.0" text="Age" textFill="#fdfdfd" />
+            <TextField id="tf_age" fx:id="tf_age" layoutX="72.0" layoutY="279.0" />
             </children>
         </Pane>
         <ImageView fitHeight="133.0" fitWidth="131.0" layoutX="85.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">

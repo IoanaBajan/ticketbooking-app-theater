@@ -13,9 +13,9 @@ public class ConcertRepository {
     }
 
     private ConcertRepository() {
-        concerts.add(new Concert("03/03/2020","Om la luna",100));
-        concerts.add(new Concert("03/03/2020","Alternosfera",100));
-        concerts.add(new Concert("03/03/2020","Luna Amara",100));
+        concerts.add(new Concert("2020-03-02","Om la luna",100));
+        concerts.add(new Concert("2020-03-08","Alternosfera",100));
+        concerts.add(new Concert("2020-03-01","Luna Amara",100));
     }
     public static void addConcert(Concert e) {
         concerts.add(e);

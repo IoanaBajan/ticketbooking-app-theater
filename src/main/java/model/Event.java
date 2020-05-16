@@ -1,12 +1,7 @@
 package model;
 
-import java.lang.reflect.Array;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Date;
 
 public class Event extends Theater implements Comparable<Event> {
@@ -34,7 +29,7 @@ public class Event extends Theater implements Comparable<Event> {
 
     @Override
     public String toString() {
-        SimpleDateFormat dt1 = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-MM-dd");
         return  " date: " + dt1.format(date) +
                 "  name: '" + name + '\'' +
                 "  maxNumberSeats " + maxNumberSeats;
@@ -55,10 +50,9 @@ public class Event extends Theater implements Comparable<Event> {
 
     public Event(String data, String name, int maxNumberSeats) {
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
             this.date = dateFormat.parse(data);
-//            System.out.println(this.date);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -69,10 +63,10 @@ public class Event extends Theater implements Comparable<Event> {
 
     @Override
     public int compareTo(Event ev) {
-        SimpleDateFormat dtf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat dtf = new SimpleDateFormat("yyyy-MM-dd");
         Date date1 = ev.getDate();
         Date date2 = this.getDate();
-        return (date1.compareTo(date2));
+        return (date2.compareTo(date1));
     }
 
 }
