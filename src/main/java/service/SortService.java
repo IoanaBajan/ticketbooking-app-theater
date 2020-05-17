@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class SortService {
-//    public events By name
+// events By date
    public Event[] sortConcerts() {
         ConcertRepository eventRepository = ConcertRepository.getInstance();
        Concert events1[] = eventRepository.getConcerts().toArray(new Concert[0]);
@@ -27,6 +27,7 @@ public class SortService {
         return events1;
 
     }
+
     public Event[] sortCharityEvents() {
         CharityEventRepository  charityEventRepository = CharityEventRepository.getInstance();
         CharityEvent events1[] = charityEventRepository.getCharityEvents().toArray(new CharityEvent[0]);
@@ -34,6 +35,7 @@ public class SortService {
         return events1;
 
     }
+    //events sorted by name
     public Event[] sortConcertsByName() {
         ConcertRepository concertRepository = ConcertRepository.getInstance();
         Concert events1[] = concertRepository.getConcerts().toArray(new Concert[0]);

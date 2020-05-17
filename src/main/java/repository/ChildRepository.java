@@ -35,8 +35,8 @@ public class ChildRepository {
             e.printStackTrace();
         }
     }
-    public static Child findUserInDB(String username) {
-        String sql = "SELECT * FROM Adults WHERE username = ?";
+    public Child findUserInDB(String username) {
+        String sql = "SELECT * FROM children WHERE username = ?";
 
         try(
                 Connection con = DBConectionManager.getInstance().createConection();
@@ -45,17 +45,16 @@ public class ChildRepository {
             statement.setString(1,username);
 
             ResultSet set = statement.executeQuery();
-            set.next();
+            if(set.next()) {
 
-            int id = set.getInt("id");
-            String u = set.getString("username");
-            String p = set.getString("password");
-            String fn = set.getString("first_name");
-            int ag = set.getInt("age");
-            int ac = set.getInt("accompanied");
+                String u = set.getString("username");
+                String p = set.getString("password");
+                String fn = set.getString("first_name");
+                int ag = set.getInt("age");
+                int ac = set.getInt("accompanied");
 
-            return new Child(u,p,fn,ag,ac);
-
+                return new Child(u, p, fn, ag, ac);
+            }
         }catch (SQLException e){
             e.printStackTrace();
         }

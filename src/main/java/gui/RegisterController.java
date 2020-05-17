@@ -1,30 +1,36 @@
 package gui;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import model.*;
 import repository.AdultRepository;
+import repository.ChildRepository;
 import repository.StudentRepository;
 import service.LoginService;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static java.lang.Integer.parseInt;
 
@@ -48,96 +54,172 @@ public class RegisterController implements Initializable {
         Integer age = parseInt(tf_age.getText());
 
         anchPane.getChildren().clear();
+        Pane p = new Pane();
+        Pane p2 = new Pane();
+        anchPane.getChildren().add(p2);
+        anchPane.getChildren().add(p);
+        p2.setLayoutX(300);
+        p2.setLayoutY(10);
+        p.setLayoutX(300);
+        p.setLayoutY(90);
+        p2.setPrefSize(285,80);
+        p.setPrefSize(286,300);
+        p.setStyle("-fx-background-color:  #72B69C");
+        p2.setStyle("-fx-background-color:  #72B69C");
+//        creating a grid where i will place a choice box for the type of client
         GridPane grid = new GridPane();
         grid.setVgap(60);
         grid.setHgap(30);
-        grid.setLayoutY(100);
-        grid.setLayoutX(100);
+        grid.setLayoutY(30);
+        grid.setLayoutX(30);
 
-        anchPane.getChildren().add(grid);
+        p2.getChildren().add(grid);
+
         Label l = new Label("I am a: ");
-//        ObservableList<String> cursors = FXCollections.observableArrayList("Adult", "Student", "Child");
+        l.setFont(new Font("Verdana", 20));
         grid.getChildren().add(l);
-        ChoiceBox choiceBox = new ChoiceBox();
-        choiceBox.getItems().addAll("Adult", "Student", "Child");
-        grid.getChildren().add(choiceBox);
         GridPane.setConstraints(l, 0, 0);
+
+        String st[] = {"Adult", "Student", "Child", "None"};
+        ChoiceBox choiceBox = new ChoiceBox(FXCollections.observableArrayList(st));
+        grid.getChildren().add(choiceBox);
         GridPane.setConstraints(choiceBox, 1, 0);
 
-        if((choiceBox.getValue().toString()).equals("Adult")){
-            Adult client = new Adult(username,password,first_name,age);
+//        add change listener for the choice box
+        final String[] option = {" "};
+        choiceBox.getSelectionModel()
+                .selectedItemProperty()
+                .addListener(new ChangeListener<String>() {
+                    @Override
+                    public void changed(ObservableValue ov, String t, String t1) {
+                        System.out.println(ov);
+                        System.out.println(t);
+                        System.out.println(t1);
+                        option[0] = t1;
+                        System.out.println("OPTION" + option[0]);
+                        if (option[0].equals("Adult")) {
+                            createAdult(username, password, first_name, age);
+                        } else if (option[0].equals("Student")) {
+                            createStudent(username, password, first_name, age);
+                        } else if (option[0].equals("Child")) {
+                            createChild(username, password, first_name, age);
 
-            LoginService L = new LoginService();
-            L.register(client);
-
-        }else if(choiceBox.getValue().toString().equals("Student")){
-            Label stid = new Label("Student id");
-            TextField add_name = new TextField();
-            stid.setFont(new Font("Verdana", 20));
-            int id = parseInt(add_name.getText());
-            grid.getChildren().add(stid);
-            GridPane.setConstraints(stid, 1, 0);
-            Student client = new Student(username,password,first_name,age,id);
-
-            LoginService L = new LoginService();
-            L.register(client);
-        }else{
-            GridPane g = new GridPane();
-            Label acc = new Label("Accompanied by an adult?");
-            g.getChildren().add(acc);
-            GridPane.setConstraints(l, 1, 0);
-            String st[] = { "Yes", "No"};
-            CheckBox c1 = new CheckBox(st[1]);
-            g.getChildren().add(c1);
-            GridPane.setConstraints(c1, 1, 1);
-
-            CheckBox c2 = new CheckBox(st[1]);
-            g.getChildren().add(c2);
-            GridPane.setConstraints(c2, 1, 2);
-
-            if(choiceBox.getValue().equals("Yes")) {
-                Label name = new Label("Name");
-                TextField add_name = new TextField();
-                String user = add_name.getText();
-                StudentRepository S = new StudentRepository();
-                AdultRepository A = new AdultRepository();
-                if(S.findUserByUsername(user).isPresent() || A.findUserByUsername(user).isPresent()){
-                    Child client = new Child(username,password,first_name,age,1);
-
-
-                    LoginService L = new LoginService();
-                    L.register(client);
-                }else {
-                    Parent view2 = null;
-                    try {
-                        view2 = FXMLLoader.load(getClass().getResource("/login.fxml"));
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                        }else anchPane.getChildren().clear();
                     }
+                });
 
-                    Node node = (Node) event.getSource();
-                    Stage stage = (Stage) node.getScene().getWindow();
-                    stage.setScene(new Scene(view2));
-                    stage.show();
+    }
+
+    public void createAdult(String username, String password, String first_name, Integer age) {
+        Adult client = new Adult(username, password, first_name, age);
+
+        LoginService L = new LoginService();
+        L.registerInDB(client);
+        System.out.println(client.toString());
+    }
+
+    void createStudent(String username, String password, String first_name, Integer age) {
+        System.out.println("select options for student");
+        Label stid = new Label("Student id");
+        stid.setFont(new Font("Verdana", 20));
+        GridPane grid = new GridPane();
+
+        grid.setLayoutY(30);
+        grid.setLayoutX(10);
+
+        grid.getChildren().add(stid);
+        GridPane.setConstraints(stid, 0, 0);
+        Pane p = (Pane) anchPane.getChildren().get(1);
+        p.getChildren().clear();
+        p.getChildren().add(grid);
+        grid.setLayoutY(150);
+        grid.setLayoutX(150);
+
+        TextField add_name = new TextField();
+        System.out.println(add_name.getText());
+        grid.getChildren().add(add_name);
+        GridPane.setConstraints(add_name, 0, 1);
+
+
+        Button add = new Button("register");
+        grid.getChildren().add(add);
+        GridPane.setConstraints(add, 0, 2);
+
+        add.setOnMouseClicked(ev -> {
+            int id = Integer.parseInt(add_name.getText());
+            Student client = new Student(username, password, first_name, age, id);
+            LoginService L = new LoginService();
+            L.registerInDB(client);
+            System.out.println(client.toString());
+        });
+    }
+
+    void createChild(String username, String password, String first_name, Integer age) {
+        System.out.println("select options for child");
+
+        GridPane g = new GridPane();
+        g.setLayoutX(30);
+        g.setLayoutY(10);
+        g.setHgap(25);
+        g.setVgap(25);
+
+        Pane p = (Pane) anchPane.getChildren().get(1);
+        p.getChildren().clear();
+        p.getChildren().add(g);
+        Label acc = new Label("Accompanied by an adult?");
+        acc.setFont(new Font("Verdana", 20));
+        g.getChildren().add(acc);
+        GridPane.setConstraints(acc, 0, 0);
+
+        String ch[] = {"Yes", "No"};
+        CheckBox c1 = new CheckBox(ch[0]);
+        g.getChildren().add(c1);
+        GridPane.setConstraints(c1, 0, 1);
+
+        CheckBox c2 = new CheckBox(ch[1]);
+        g.getChildren().add(c2);
+        GridPane.setConstraints(c2, 0, 2);
+
+        EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+
+            public void handle(ActionEvent e) {
+                if (c1.isSelected()) {
+                    g.getChildren().clear();
+                    System.out.println("selected");
+                    Label name = new Label("Name");
+                    TextField add_name = new TextField();
+                    g.getChildren().addAll(name, add_name);
+                    GridPane.setConstraints(name, 1, 2);
+                    GridPane.setConstraints(add_name, 1, 3);
+                    Button add = new Button("register");
+                    g.getChildren().add(add);
+                    GridPane.setConstraints(add, 1, 4);
+
+                    add.setOnMouseClicked(ev -> {
+                        System.out.println("verify");
+                        String user = add_name.getText();
+                        StudentRepository S = new StudentRepository();
+                        AdultRepository A = new AdultRepository();
+
+                        if ((S.findUserInDB(user)!=null) || (A.findUserInDB(user)!=null)) {
+                            Child client = new Child(username, password, first_name, age, 1);
+                            LoginService L = new LoginService();
+                            L.registerInDB(client);
+                            System.out.println(client.toString());
+                        }
+                    });
+                }else if (c2.isSelected()) {
+                    g.getChildren().clear();
+                    Text add = new Text("Sorry, you can't visit us without an adult");
+                    add.setFont(new Font("Verdana", 20));
+                    g.getChildren().add(add);
+                    GridPane.setConstraints(add, 1, 3);
 
                 }
             }
-
-        }
-
-        Parent view2 = null;
-        try {
-            view2 = FXMLLoader.load(getClass().getResource("/login.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        stage.setScene(new Scene(view2));
-        stage.show();
-
-
+        };
+        c1.setOnAction(event);
+        c2.setOnAction(event);
     }
 
     @Override
@@ -145,4 +227,5 @@ public class RegisterController implements Initializable {
 
     }
 }
+
 

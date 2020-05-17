@@ -21,8 +21,8 @@ public class TheaterPlaysRepository {
 
     private TheaterPlaysRepository() {
         plays.add(new TheaterPlay("2020-03-02","50 De Secunde",60,"Eugen Gyemant ","Alexandru Voicu, Diana Dumbrava,Lucian Iftime"));
-        plays.add(new TheaterPlay("2020-03-08","50 De Secunde",60,"Eugen Gyemant ","Alexandru Voicu, Diana Dumbrava,Lucian Iftime"));
-        plays.add(new TheaterPlay("2020-03-01","50 De Secunde",60,"Eugen Gyemant ","Alexandru Voicu, Diana Dumbrava,Lucian Iftime"));
+        plays.add(new TheaterPlay("2020-03-08","Oscar si tanti roz",60,"Eugen Gyemant ","Alexandru Voicu, Diana Dumbrava,Lucian Iftime"));
+        plays.add(new TheaterPlay("2020-03-01","Abc De Secunde",60,"Eugen Gyemant ","Alexandru Voicu, Diana Dumbrava,Lucian Iftime"));
     }
     public static void addPlay(TheaterPlay e) {
         plays.add(e);

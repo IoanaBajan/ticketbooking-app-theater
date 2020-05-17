@@ -19,7 +19,7 @@ public class AdultRepository {
         adults.add(c);
     }
     public void addToDtbase(Adult a) {
-        String sql = "INSERT INTO Adults Values (NULL, ?, ?, ?, ?)";
+        String sql = "INSERT INTO adults Values (NULL, ?, ?, ?, ?)";
         try(
                 Connection con = DBConectionManager.getInstance().createConection();
                 PreparedStatement statement= con.prepareStatement(sql);
@@ -46,8 +46,8 @@ public class AdultRepository {
         return Optional.empty();
     }
 
-    public static Adult findUserInDB(String username) {
-    String sql = "SELECT * FROM Adults WHERE username = ?";
+    public Adult findUserInDB(String username) {
+    String sql = "SELECT * FROM adults WHERE username = ?";
 
         try(
                 Connection con = DBConectionManager.getInstance().createConection();
@@ -56,16 +56,15 @@ public class AdultRepository {
             statement.setString(1,username);
 
             ResultSet set = statement.executeQuery();
-            set.next();
+            if(set.next()) {
 
-            int id = set.getInt("id");
-            String u = set.getString("username");
-            String p = set.getString("password");
-            String fn = set.getString("first_name");
-            int ag = set.getInt("age");
+                String u = set.getString("username");
+                String p = set.getString("password");
+                String fn = set.getString("first_name");
+                int ag = set.getInt("age");
 
-            return new Adult(u,p,fn,ag);
-
+                return new Adult(u, p, fn, ag);
+            }
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -73,7 +72,7 @@ public class AdultRepository {
         return null;
     }
 
-        public static AdultRepository getInstance() {
+    public static AdultRepository getInstance() {
         return AdultRepository.SingletonHolder.INSTANCE;
     }
 

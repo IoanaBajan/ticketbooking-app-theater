@@ -40,9 +40,8 @@ public class StudentRepository {
             e.printStackTrace();
         }
     }
-    public static Student findUserInDB(String username) {
+    public Student findUserInDB(String username) {
         String sql = "SELECT * FROM students WHERE username = ?";
-
         try(
                 Connection con = DBConectionManager.getInstance().createConection();
                 PreparedStatement statement= con.prepareStatement(sql);
@@ -50,15 +49,16 @@ public class StudentRepository {
             statement.setString(1,username);
 
             ResultSet set = statement.executeQuery();
-            set.next();
+            if(set.next()) {
 
-            String u = set.getString("username");
-            String p = set.getString("password");
-            String fn = set.getString("first_name");
-            int ag = set.getInt("age");
-            int stid = set.getInt("studentIdNo");
+                String u = set.getString("username");
+                String p = set.getString("password");
+                String fn = set.getString("first_name");
+                int ag = set.getInt("age");
+                int stid = set.getInt("studentIdNo");
+                return new Student(u,p,fn,ag,stid);
 
-            return new Student(u,p,fn,ag,stid);
+            }
 
         }catch (SQLException e){
             e.printStackTrace();

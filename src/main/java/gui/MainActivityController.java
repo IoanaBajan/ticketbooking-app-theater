@@ -29,10 +29,7 @@ import service.SortService;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 import static java.lang.Integer.parseInt;
@@ -47,10 +44,22 @@ public class MainActivityController implements Initializable {
     private TextField passphrase;
     @FXML
     private AnchorPane anchPane;
-    //    @FXML
-//    private Pane buttonPane;
+    @FXML
+    void buy(MouseEvent event){
+        Parent view2 = null;
+        try {
+            view2 = FXMLLoader.load(getClass().getResource("/buy_ticket.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setScene(new Scene(view2));
+        stage.setTitle("Buy Tickets");
+        stage.show();
 
+    }
     @FXML
     void showPlays(MouseEvent event) {
         InformationService i = new InformationService();
@@ -69,9 +78,13 @@ public class MainActivityController implements Initializable {
         tf_flow.setLineSpacing(15);
         tf_flow.getChildren().add(text);
 
-         Button sort = new Button("Sort plays by date");
+        Button sort = new Button("Sort plays by date");
         tf_flow.getChildren().add(sort);
-         sort.setOnMouseClicked(ev ->sortPlays());
+        sort.setOnMouseClicked(ev ->sortPlays());
+
+        Button sort2 = new Button("Sort plays by name");
+        tf_flow.getChildren().add(sort2);
+        sort2.setOnMouseClicked(ev ->sortPlaysByName());
 
     }
     @FXML
@@ -190,20 +203,10 @@ public class MainActivityController implements Initializable {
             Button add = new Button("add");
             infoPane.getChildren().add(add);
             GridPane.setConstraints(add, 0, 5);
-
-
-
             add.setOnMouseClicked(  x -> {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 String n = add_name.getText();
                 String u = add_date.getValue().toString();
-//                Date u = null;
-//                try {
-//                    u = dateFormat.parse(String.valueOf(add_date.getValue()));
-//                } catch (ParseException e) {
-//                    e.printStackTrace();
-//                }
-//                String u1 = u.toString();
                 int s = parseInt(add_maxNumberSeats.getText());
                 String d = add_director.getText();
                 String a = add_actors.getText();
@@ -260,6 +263,26 @@ public class MainActivityController implements Initializable {
         tf_flow.getChildren().add(text);
 
     }
+    void sortPlaysByName(){
+        SortService i = new SortService();
+        String value = " ";
+        for (Event t : i.sortPlaysByName()) {
+            String plays = t.toString();
+            value += plays + "\n" + " \n";
+        }
+
+        System.out.println(value);
+        System.out.println("showEvents");
+        Text text = new Text(value);
+        text.setFill(Color.WHITE);
+        text.setFont(new Font("Verdana", 20));
+
+        tf_flow.getChildren().clear();
+        tf_flow.setLineSpacing(15);
+        tf_flow.getChildren().add(text);
+
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -1,7 +1,5 @@
 package service;
 
 public interface CalculatePrice {
-    void calculate(int seatNr, Object event);
-
-
+    int calculate(int seatNr, Object event);
 }

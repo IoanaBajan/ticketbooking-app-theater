@@ -7,6 +7,7 @@ public class calculateFactory {
         CalculatePrice obj = null;
         if(o instanceof Student)
             obj = new ReducedTickets();
+
         else obj = new Tickets();
         return obj;
 
