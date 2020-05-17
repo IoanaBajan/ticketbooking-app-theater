@@ -5,14 +5,11 @@ import repository.AdultRepository;
 import repository.ChildRepository;
 import repository.StudentRepository;
 
-import java.sql.SQLException;
 import java.util.Optional;
 
 public class LoginService {
 
     public LoginService() {
-       AdultRepository adultRepository = new AdultRepository();
-
     }
 
     public boolean login(User user) {

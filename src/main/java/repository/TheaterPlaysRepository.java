@@ -1,15 +1,11 @@
 package repository;
 
 import managers.DBConectionManager;
-import model.Student;
-import model.Theater;
 import model.TheaterPlay;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
-import static java.lang.String.valueOf;
 
 public class TheaterPlaysRepository {
 
@@ -21,8 +17,7 @@ public class TheaterPlaysRepository {
 
     private TheaterPlaysRepository() {
         plays.add(new TheaterPlay("2020-03-02","50 De Secunde",60,"Eugen Gyemant ","Alexandru Voicu, Diana Dumbrava,Lucian Iftime"));
-        plays.add(new TheaterPlay("2020-03-08","Oscar si tanti roz",60,"Eugen Gyemant ","Alexandru Voicu, Diana Dumbrava,Lucian Iftime"));
-        plays.add(new TheaterPlay("2020-03-01","Abc De Secunde",60,"Eugen Gyemant ","Alexandru Voicu, Diana Dumbrava,Lucian Iftime"));
+        plays.add(new TheaterPlay("2020-03-08","Oscar si tanti roz",60,"Chris Simion Mercurian","Oana Pellea,  Marius Manole"));
     }
     public static void addPlay(TheaterPlay e) {
         plays.add(e);
@@ -31,7 +26,7 @@ public class TheaterPlaysRepository {
         plays.remove(e);
     }
 
-    public void addToDtbase(TheaterPlay t) {
+    public static void addToDtbase(TheaterPlay t) {
         String sql = "INSERT INTO plays Values (NULL, ?, ?, ?, ?, ?)";
         try(
                 Connection con = DBConectionManager.getInstance().createConection();
@@ -72,7 +67,6 @@ public class TheaterPlaysRepository {
         }catch (SQLException e){
             e.printStackTrace();
         }
-
         return null;
     }
 

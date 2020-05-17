@@ -2,7 +2,6 @@ package service;
 
 import model.CharityEvent;
 import model.Concert;
-import model.Event;
 import model.TheaterPlay;
 import repository.*;
 
@@ -14,20 +13,22 @@ public class InformationService {
         for(int i = 0; i < (studentRepository.getStudents()).size(); i++)  {
             System.out.println(studentRepository.getStudents().get(i));
         }
-
     }
+
     public void showAdults(){
         AdultRepository adultRepository = AdultRepository.getInstance();
         for(int i = 0; i < (adultRepository.getAdults()).size(); i++)  {
             System.out.println(adultRepository.getAdults().get(i));
         }
     }
-        public void showKids() {
-            ChildRepository childRepository = ChildRepository.getInstance();
-            for (int i = 0; i < (childRepository.getChildren()).size(); i++) {
-                System.out.println(childRepository.getChildren().get(i));
-            }
+
+    public void showKids() {
+        ChildRepository childRepository = ChildRepository.getInstance();
+        for (int i = 0; i < (childRepository.getChildren()).size(); i++) {
+            System.out.println(childRepository.getChildren().get(i));
+        }
     }
+
     public ArrayList<TheaterPlay> showPlays() {
         TheaterPlaysRepository theaterPlayRepository = TheaterPlaysRepository.getInstance();
         ArrayList<TheaterPlay> plays = new ArrayList<> ();
@@ -39,13 +40,13 @@ public class InformationService {
 
     public ArrayList<CharityEvent> showCharityEvents() {
         CharityEventRepository charityEventRepository = CharityEventRepository.getInstance();
-
         ArrayList<CharityEvent> charity = new ArrayList<> ();
         for (int i = 0; i < (charityEventRepository.getCharityEvents()).size(); i++) {
             charity.add(charityEventRepository.getCharityEvents().get(i));
         }
         return charity;
     }
+
     public ArrayList<Concert> showConcerts() {
         ConcertRepository concertRepository = ConcertRepository.getInstance();
 
@@ -55,6 +56,7 @@ public class InformationService {
         }
         return concerts;
     }
+
     public static InformationService getInstance() {
         return InformationService.SingletonHolder.INSTANCE;
     }

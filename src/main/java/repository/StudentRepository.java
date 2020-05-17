@@ -17,7 +17,10 @@ public class StudentRepository {
     }
 
     public StudentRepository() {
+
         this.students.add( new Student("alabala","09876","portocala",23,11299));
+        this.students.add(new Student("yolo123","locked","Ioana",20,21564));
+
     }
 
     public static void addStudent(Student c) {

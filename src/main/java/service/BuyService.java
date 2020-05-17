@@ -1,7 +1,6 @@
 package service;
 
 import model.Child;
-import model.Event;
 
 public class BuyService {
 
