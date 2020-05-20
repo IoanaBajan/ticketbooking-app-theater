@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Event extends Theater implements Comparable<Event> {
+public class Event implements Comparable<Event> {
     private Date date;
     private String data;
     private String name;

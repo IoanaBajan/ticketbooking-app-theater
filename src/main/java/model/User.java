@@ -1,6 +1,6 @@
 package model;
 
-public class User extends Theater{
+public class User {
     private String username;
     private String password;
 
