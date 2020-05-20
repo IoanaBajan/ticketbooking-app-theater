@@ -19,12 +19,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
-import model.CharityEvent;
 import model.Concert;
 import model.Event;
 import model.TheaterPlay;
+import repository.ConcertRepository;
 import repository.TheaterPlaysRepository;
-import service.InformationService;
 import service.SortService;
 
 import java.io.IOException;
@@ -62,9 +61,9 @@ public class MainActivityController implements Initializable {
     }
     @FXML
     void showPlays(MouseEvent event) {
-        InformationService i = new InformationService();
+        TheaterPlaysRepository theaterPlaysRepository = TheaterPlaysRepository.build(TheaterPlaysRepository.Type.DB);
         String value = " ";
-        for (TheaterPlay t : i.showPlays()) {
+        for (TheaterPlay t : theaterPlaysRepository.getPlays()) {
             String play = t.toString();
             value += play + "\n" + " \n";
         }
@@ -89,9 +88,9 @@ public class MainActivityController implements Initializable {
     }
     @FXML
     void showConcerts(MouseEvent event) {
-        InformationService i = new InformationService();
+        ConcertRepository concertRepository = ConcertRepository.build(ConcertRepository.Type.DB);
         String value = " ";
-        for (Concert t : i.showConcerts()) {
+        for (Concert t : concertRepository.getConcerts()) {
             String concert = t.toString();
             value += concert + "\n" + " \n";
         }
@@ -110,25 +109,6 @@ public class MainActivityController implements Initializable {
         tf_flow.getChildren().add(sort);
         sort.setOnMouseClicked(ev ->sortConcerts());
 
-
-    }
-    @FXML
-    void showChEvents(MouseEvent event) {
-        InformationService i = new InformationService();
-        String value = " ";
-        for (CharityEvent t : i.showCharityEvents()) {
-            String charity = t.toString();
-            value += charity + "\n" + " \n";
-        }
-        System.out.println(value);
-        System.out.println("showEvents");
-        Text text = new Text(value);
-        text.setFill(Color.WHITE);
-        text.setFont(new Font("Verdana", 20));
-
-        tf_flow.getChildren().clear();
-        tf_flow.setLineSpacing(15);
-        tf_flow.getChildren().add(text);
 
     }
     @FXML
@@ -211,8 +191,8 @@ public class MainActivityController implements Initializable {
                 String d = add_director.getText();
                 String a = add_actors.getText();
                 TheaterPlay e = new TheaterPlay(u,n, s, d, a);
-                TheaterPlaysRepository t = TheaterPlaysRepository.getInstance();
-                t.addToDtbase(e);
+                TheaterPlaysRepository theaterPlaysRepository = TheaterPlaysRepository.build(TheaterPlaysRepository.Type.DB);
+                theaterPlaysRepository.addPlay(e);
             });
         });
 

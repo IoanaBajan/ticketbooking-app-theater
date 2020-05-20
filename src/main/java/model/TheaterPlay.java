@@ -3,9 +3,21 @@ package model;
 import java.util.ArrayList;
 
 public class TheaterPlay extends Event {
-    private final String director;
-    private final String actors;
+    private String director;
+    private String actors;
     public int soldout;
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public void setActors(String actors) {
+        this.actors = actors;
+    }
+
+    public TheaterPlay() {
+        super();
+    }
 
     public String getDirector() {
         return director;

@@ -3,6 +3,9 @@ package model;
 public class Child extends Client {
     int accompanied;
 
+    public Child() {
+    }
+
     public int isAccompanied() {
         return accompanied;
     }
@@ -11,8 +14,8 @@ public class Child extends Client {
         this.accompanied = accompanied;
     }
 
-    public Child(String username, String password, String firstName, int age, int accompanied) {
-        super(username, password, firstName, age);
+    public Child(String username, String password, String firstName, int accompanied) {
+        super(username, password, firstName);
         this.accompanied = accompanied;
     }
 

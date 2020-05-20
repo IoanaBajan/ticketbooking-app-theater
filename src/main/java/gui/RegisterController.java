@@ -3,15 +3,10 @@ package gui;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -19,18 +14,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
-import javafx.stage.Stage;
 import model.*;
-import repository.AdultRepository;
-import repository.ChildRepository;
-import repository.StudentRepository;
+import repository.DBAdultRepository;
+import repository.DBStudentRepository;
 import service.LoginService;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicReference;
 
 import static java.lang.Integer.parseInt;
 
@@ -98,7 +88,7 @@ public class RegisterController implements Initializable {
                         option[0] = t1;
                         System.out.println("OPTION" + option[0]);
                         if (option[0].equals("Adult")) {
-                            createAdult(username, password, first_name, age);
+//                            createAdult(username, password, first_name, age);
                         } else if (option[0].equals("Student")) {
                             createStudent(username, password, first_name, age);
                         } else if (option[0].equals("Child")) {
@@ -110,13 +100,13 @@ public class RegisterController implements Initializable {
 
     }
 
-    public void createAdult(String username, String password, String first_name, Integer age) {
-        Adult client = new Adult(username, password, first_name, age);
-
-        LoginService L = new LoginService();
-        L.registerInDB(client);
-        System.out.println(client.toString());
-    }
+//    public void createAdult(String username, String password, String first_name, Integer age) {
+//        Adult client = new Adult(username, password, first_name, age);
+//
+//        LoginService L = new LoginService();
+//        L.register(client);
+//        System.out.println(client.toString());
+//    }
 
     void createStudent(String username, String password, String first_name, Integer age) {
         System.out.println("select options for student");
@@ -147,9 +137,9 @@ public class RegisterController implements Initializable {
 
         add.setOnMouseClicked(ev -> {
             int id = Integer.parseInt(add_name.getText());
-            Student client = new Student(username, password, first_name, age, id);
+            Student client = new Student(username, password, first_name, id);
             LoginService L = new LoginService();
-            L.registerInDB(client);
+            L.register(client);
             System.out.println(client.toString());
         });
     }
@@ -198,15 +188,15 @@ public class RegisterController implements Initializable {
                     add.setOnMouseClicked(ev -> {
                         System.out.println("verify");
                         String user = add_name.getText();
-                        StudentRepository S = new StudentRepository();
-                        AdultRepository A = new AdultRepository();
+                        DBStudentRepository S = new DBStudentRepository();
+                        DBAdultRepository A = new DBAdultRepository();
 
-                        if ((S.findUserInDB(user)!=null) || (A.findUserInDB(user)!=null)) {
-                            Child client = new Child(username, password, first_name, age, 1);
-                            LoginService L = new LoginService();
-                            L.registerInDB(client);
-                            System.out.println(client.toString());
-                        }
+//                        if ((S.findUserByName(user).isPresent()) || (A.findUserInDB(user)!=null)) {
+//                            Child client = new Child(username, password, first_name, age, 1);
+//                            LoginService L = new LoginService();
+//                            L.register(client);
+//                            System.out.println(client.toString());
+//                        }
                     });
                 }else if (c2.isSelected()) {
                     g.getChildren().clear();

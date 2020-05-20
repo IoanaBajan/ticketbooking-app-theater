@@ -28,11 +28,6 @@
                            <font>
                               <Font size="15.0" />
                            </font></Button>
-                        <Button id="showChEvents" fx:id="showChEvents" layoutX="460.0" layoutY="37.0" mnemonicParsing="false" onMouseClicked="#showChEvents" text="Show future charity events" textFill="#bf0c63">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
                         <Button fx:id="buy" layoutX="860.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#buy" prefHeight="8.0" prefWidth="118.0" text="Buy ticket" textFill="#cd2b59">
                            <font>
                               <Font size="15.0" />

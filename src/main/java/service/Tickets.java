@@ -1,6 +1,5 @@
 package service;
 
-import model.CharityEvent;
 import model.Concert;
 import model.TheaterPlay;
 
@@ -40,12 +39,6 @@ public class Tickets implements CalculatePrice {
                 ((TheaterPlay) event).soldout++;
                 price = playPrice;
             } else return -1;
-        }
-        else {
-            if (((CharityEvent) event).soldout < ((CharityEvent) event).getMaxNumberSeats()) {
-                ((CharityEvent) event).soldout++;
-                price = charityEvPrice;
-            }else return -1 ;
         }
 
         if(seatNr <basicClass && seatNr>firstClass) price += 0.2*price;

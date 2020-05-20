@@ -2,7 +2,11 @@ package model;
 
 public class Student extends Client {
     private int studentIdNo;
-    private int id;
+
+    public Student() {
+
+    }
+
     public int getStudentIdNo() {
         return studentIdNo;
     }
@@ -11,8 +15,8 @@ public class Student extends Client {
         this.studentIdNo = studentIdNo;
     }
 
-    public Student(String username, String password, String firstName, int age, int studentIdNo) {
-        super(username, password,firstName, age);
+    public Student(String username, String password, String firstName, int studentIdNo) {
+        super(username, password,firstName);
         this.studentIdNo = studentIdNo;
     }
     public String toString() {

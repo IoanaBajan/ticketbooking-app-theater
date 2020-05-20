@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static com.sun.javafx.scene.control.skin.Utils.getResource;
 
 public class Login extends Application {
 

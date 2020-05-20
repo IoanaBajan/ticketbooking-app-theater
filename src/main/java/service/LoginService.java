@@ -1,24 +1,24 @@
 package service;
 
 import model.*;
-import repository.AdultRepository;
-import repository.ChildRepository;
-import repository.StudentRepository;
+import repository.*;
 
 import java.util.Optional;
 
 public class LoginService {
-
+    private StudentRepository studentRepository;
+    private AdultRepository adultRepository;
+    private ChildRepository childRepository;
     public LoginService() {
+        studentRepository = StudentRepository.build(StudentRepository.Type.DB);
+        adultRepository = AdultRepository.build(AdultRepository.Type.DB);
+        childRepository = ChildRepository.build(ChildRepository.Type.DB);
     }
 
     public boolean login(User user) {
-        StudentRepository studentRepository = StudentRepository.getInstance();
-        AdultRepository adultRepository = AdultRepository.getInstance();
-        ChildRepository childRepository = ChildRepository.getInstance();
-        Optional<Student> o1 = studentRepository.findUserByUsername(user.getUsername());
-        Optional<Adult> o2 = adultRepository.findUserByUsername(user.getUsername());
-        Optional<Child> o3 = childRepository.findUserByUsername(user.getUsername());
+        Optional<Student> o1 = studentRepository.findUserByName(user.getUsername());
+        Optional<Adult> o2 = adultRepository.findUserByName(user.getUsername());
+        Optional<Child> o3 = childRepository.findUserByName(user.getUsername());
 
         if(o1.isPresent()) {
             User clt = o1.get();
@@ -34,44 +34,34 @@ public class LoginService {
         return false;
     }
     public boolean loginDB (String username, String password) {
-            StudentRepository S = new StudentRepository();
-            AdultRepository A = new AdultRepository();
-            ChildRepository C = new ChildRepository();
-            if(S.findUserInDB(username)!=null) {
-            if ((S.findUserInDB(username).getPassword()).equals(password))
+
+        Optional <Student> res1 = studentRepository.findUserByName(username);
+        if (res1.isPresent()){
+            Student u = res1.get();
+            if(u.getPassword()!=null && u.getPassword().equals(password)){
                 return true;
-            }
-            if (A.findUserInDB(username)!=null){
-                if((A.findUserInDB(username).getPassword()).equals(password))
-                    return true;
-                }
-            if (C.findUserInDB(username)!=null){
-                if((C.findUserInDB(username).getPassword()).equals(password))
-                    return true;
-            }
-            return false;
+            }else System.out.println("password and username do not match");
+        }else System.out.println("user not registered");
+        return false;
     }
 
-    public void register(Object client) {
-        if(client instanceof Student)
-            StudentRepository.addStudent((Student) client);
-        else if(client instanceof Adult)
-            AdultRepository.addAdult((Adult) client);
-        if(client instanceof Child)
-            ChildRepository.addChild((Child) client);
+//overloading method register
+    public void register(Child client) {
+        childRepository.addChild(client);
+
+    }
+    public void register(Student client) {
+        studentRepository.addStudent(client);
+
+    }
+    public void deleteClient(Student client) {
+        String username = client.getUsername();
+        DBStudentRepository.deleteStudent(username);
     }
 
-    public void registerInDB(Object client) {
-        if (client instanceof Student) {
-            StudentRepository S = new StudentRepository();
-            S.addToDtbase((Student) client);
-        } else if (client instanceof Adult) {
-            AdultRepository A = new AdultRepository();
-            A.addToDtbase((Adult) client);
-        } else if (client instanceof Child){
-            ChildRepository C = new ChildRepository();
-            C.addToDtbase((Child) client);
-        }
+    public void register(Adult client) {
+        adultRepository.addAdult(client);
+
     }
 
     public static LoginService getInstance() {

@@ -14,13 +14,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import model.*;
-import repository.AdultRepository;
-import repository.ChildRepository;
-import repository.StudentRepository;
-import repository.TheaterPlaysRepository;
+import repository.*;
 import service.BuyService;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import static java.lang.Integer.parseInt;
@@ -47,23 +45,25 @@ public class BuyController implements Initializable {
     void price(MouseEvent event){
         String ev_name = eventName.getText();
         String user = username.getText();
-        StudentRepository S = new StudentRepository();
-        AdultRepository A = new AdultRepository();
-        ChildRepository C = new ChildRepository();
+        StudentRepository S = StudentRepository.build(StudentRepository.Type.DB);
+        AdultRepository A = AdultRepository.build(AdultRepository.Type.DB);
+        ChildRepository C = ChildRepository.build(ChildRepository.Type.DB);
+        TheaterPlaysRepository theaterPlaysRepository = TheaterPlaysRepository.build(TheaterPlaysRepository.Type.DB);
+        ConcertRepository concertRepository = ConcertRepository.build(ConcertRepository.Type.DB);
 
-        if(S.findUserInDB(user)!=null && TheaterPlaysRepository.findEventInDB(ev_name)!=null){
-            Student client = S.findUserInDB(user);
-            TheaterPlay even =TheaterPlaysRepository.findEventInDB(ev_name);
+        if(S.findUserByName(user).isPresent() && theaterPlaysRepository.findPlay(ev_name).isPresent()){
+            Optional<Student> client = S.findUserByName(user);
+            Optional<TheaterPlay> even = theaterPlaysRepository.findPlay(ev_name);
             calcPrice(client,even);
 
-        }else if(A.findUserInDB(user)!=null && TheaterPlaysRepository.findEventInDB(ev_name)!=null){
-            Adult client = A.findUserInDB(user);
-            TheaterPlay even =TheaterPlaysRepository.findEventInDB(ev_name);
+        }else if(A.findUserByName(user).isPresent() && theaterPlaysRepository.findPlay(ev_name).isPresent()){
+            Optional<Adult> client = A.findUserByName(user);
+            Optional<TheaterPlay> even = theaterPlaysRepository.findPlay(ev_name);
             calcPrice(client,even);
 
-        } else if(C.findUserInDB(user)!=null && TheaterPlaysRepository.findEventInDB(ev_name)!=null){
-            Child client = C.findUserInDB(user);
-            TheaterPlay even =TheaterPlaysRepository.findEventInDB(ev_name);
+        } else if(C.findUserByName(user).isPresent() && theaterPlaysRepository.findPlay(ev_name).isPresent()){
+            Optional<Child> client = C.findUserByName(user);
+            Optional<TheaterPlay> even = theaterPlaysRepository.findPlay(ev_name);
             calcPrice(client,even);
 
         }

@@ -2,23 +2,23 @@ package model;
 
 public class Client extends User{
 
-    private int age;
     private String firstName;
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
 
     public Client() {
         super();
     }
 
-    public Client(String username, String password, String firstName, int age) {
+    public Client(String username, String password, String firstName) {
         super(username, password);
         this.firstName = firstName;
-        this.age = age;
     }
 
 
-    public int getAge() {
-        return age;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -26,7 +26,7 @@ public class Client extends User{
 
     @Override
     public String toString() {
-        return super.toString() + "  Name " + firstName + "  Age " + age;
+        return super.toString() + "  Name " + firstName;
     }
 }
 

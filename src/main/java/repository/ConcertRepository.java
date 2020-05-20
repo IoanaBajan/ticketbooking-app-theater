@@ -1,34 +1,27 @@
 package repository;
 
 import model.Concert;
+import model.TheaterPlay;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
-public class ConcertRepository {
-    private static ArrayList<Concert> concerts = new ArrayList<> ();;
+public interface ConcertRepository {
+    void addConcert(Concert concert);
+    void showConcerts();
+    ArrayList<Concert> getConcerts();
+    Optional<Concert> findConcert(String name);
 
-    public ArrayList<Concert> getConcerts() {
-        return concerts;
+    static ConcertRepository build(ConcertRepository.Type type) {
+        switch (type){
+            case DB: return new DBConcertRepository();
+            case FILE: return new FileConcertRepository();
+            case ARRAY: return new ArrayConcertRepository();
+        }
+        throw  new RuntimeException("no such type");
     }
-
-    private ConcertRepository() {
-        concerts.add(new Concert("2020-06-08","Concert Simfonic",68));
-        concerts.add(new Concert("2020-06-01","Luna Amara",68));
-        concerts.add(new Concert("2020-06-02","Concert Coral",60));
-    }
-    public static void addConcert(Concert e) {
-        concerts.add(e);
-    }
-    public static void removeConcerts(Concert e) {
-        concerts.remove(e);
-    }
-
-    public static ConcertRepository getInstance() {
-        return ConcertRepository.SingletonHolder.INSTANCE;
-    }
-
-    private static class SingletonHolder {
-        private static ConcertRepository INSTANCE = new ConcertRepository();
+    enum Type{
+        DB, FILE,ARRAY
     }
 
 }

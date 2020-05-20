@@ -26,7 +26,8 @@ public class Event implements Comparable<Event> {
     public int getMaxNumberSeats() {
         return maxNumberSeats;
     }
-
+    public Event() {
+    }
     @Override
     public String toString() {
         SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-MM-dd");
@@ -35,13 +36,26 @@ public class Event implements Comparable<Event> {
                 "  maxNumberSeats " + maxNumberSeats;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate(String d) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            this.date = dateFormat.parse(d);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
 
     public Date getDate() {
         return date;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setMaxNumberSeats(int maxNumberSeats) {
+        this.maxNumberSeats = maxNumberSeats;
     }
 
     public String getName() {
