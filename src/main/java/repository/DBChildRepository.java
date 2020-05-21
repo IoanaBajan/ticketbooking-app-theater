@@ -3,7 +3,9 @@ package repository;
 import managers.DBConectionManager;
 import model.Child;
 import model.Concert;
+import service.AuditService;
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -23,6 +25,13 @@ public class DBChildRepository implements ChildRepository {
 
             statement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        Thread t = new Thread();
+        t.start();
+        try {
+            AuditService.getInstance().addToAuditFile(c.getUsername()+"registered",t.getName());
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -49,10 +58,17 @@ public class DBChildRepository implements ChildRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        Thread t = new Thread();
+        t.start();
+        try {
+            AuditService.getInstance().addToAuditFile("searched for "+ name,t.getName());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return Optional.empty();
     }
     public static void deleteUser(String name) {
-        String sql = "DELETE FROM children WHERE name = '" + name + "' ";
+        String sql = "DELETE FROM children WHERE username = '" + name + "' ";
         try (
                 Connection con = DBConectionManager.getInstance().createConection();
                 Statement statement = con.createStatement();
@@ -64,13 +80,20 @@ public class DBChildRepository implements ChildRepository {
             e.printStackTrace();
         }
     }
-    @Override
     public void showChildren() {
         ArrayList<Child> c = getChildren();
         for (int i = 0; i < c.size(); i++) {
             System.out.println(c.get(i).toString());
         }
+        Thread t = new Thread();
+        t.start();
+        try {
+            AuditService.getInstance().addToAuditFile("printed all child clients ",t.getName());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+    @Override
     public ArrayList<Child> getChildren(){
         String sql = "SELECT * FROM children";
 

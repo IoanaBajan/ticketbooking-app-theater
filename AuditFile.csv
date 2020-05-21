@@ -1,0 +1,48 @@
+LOGIN,2020-05-21 21:47:55.563,main
+Failed try to login,2020-05-21 21:49:55.096,main
+printed all clients,2020-05-21 21:54:34.936,main
+printed all clients,2020-05-21 22:03:36.365,main
+show students,2020-05-21 22:03:36.572,Thread-3
+LOGIN,2020-05-21 22:05:50.041,main
+show plays,2020-05-21 22:05:52.721,Thread-3
+LOGIN,2020-05-21 22:08:08.146,main
+show plays,2020-05-21 22:08:10.771,Thread-3
+show concerts,2020-05-21 22:08:12.621,Thread-4
+show plays,2020-05-21 22:08:49.11,Thread-5
+show concerts,2020-05-21 22:08:51.158,Thread-6
+added concertconcert1,2020-05-21 22:12:41.545,Thread-3
+deleted concertconcert1,2020-05-21 22:13:00.293,Thread-4
+test3 registered,2020-05-21 22:29:50.789,Thread-3
+ana registered,2020-05-21 22:31:05.672,Thread-3
+cosmoregistered,2020-05-21 22:33:17.41,Thread-3
+searched for test2,2020-05-21 22:34:57.473,Thread-3
+searched for test2,2020-05-21 22:34:57.499,Thread-4
+searched for test2,2020-05-21 22:34:57.527,Thread-5
+Failed try to login,2020-05-21 22:34:57.533,main
+searched for test2,2020-05-21 22:36:23.387,Thread-3
+searched for test2,2020-05-21 22:41:33.869,Thread-3
+Failed try to login,2020-05-21 22:41:33.87,main
+searched for yolo123,2020-05-21 22:45:20.11,Thread-3
+LOGIN,2020-05-21 22:45:20.112,main
+Failed try to login,2020-05-21 22:46:04.575,main
+searched for yolo123,2020-05-21 22:52:01.681,Thread-3
+Failed try to login,2020-05-21 22:52:01.682,main
+searched for yolo123,2020-05-21 22:55:35.68,Thread-3
+LOGIN,2020-05-21 22:55:35.681,main
+searched for test3,2020-05-21 22:56:09.609,Thread-3
+LOGIN,2020-05-21 22:56:09.611,main
+LOGIN,2020-05-21 22:56:34.486,main
+searched for test3,2020-05-21 22:59:23.793,Thread-3
+added Concert Bethoveen,2020-05-21 23:00:11.61,Thread-4
+printed all adult clients ,2020-05-21 23:00:41.349,Thread-5
+printed all students ,2020-05-21 23:00:41.356,Thread-6
+printed all child clients ,2020-05-21 23:00:41.381,Thread-7
+added sfdgtfhyju,2020-05-21 23:01:06.865,Thread-8
+searched for test1,2020-05-21 23:02:26.391,Thread-3
+searched for test3,2020-05-21 23:03:00.647,Thread-3
+searched for test3,2020-05-21 23:05:12.594,Thread-3
+searched for testArray,2020-05-21 23:11:38.135,Thread-3
+Failed try to login,2020-05-21 23:11:38.137,main
+searched for yolo123,2020-05-21 23:13:45.931,Thread-3
+searched for yolo123,2020-05-21 23:16:04.186,Thread-3
+searched for yolo123,2020-05-21 23:18:29.888,Thread-3

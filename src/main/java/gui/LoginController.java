@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import model.User;
 import service.LoginService;
 
 import java.io.IOException;
@@ -26,7 +27,8 @@ public class LoginController implements Initializable {
         String password = tf_password.getText();
 
         LoginService L= new LoginService();
-        if(L.loginDB(username,password)) {
+        User user = new User(username,password);
+        if(L.login(user)) {
             System.out.println("Login Reusit");
             Parent view2 = null;
             try {

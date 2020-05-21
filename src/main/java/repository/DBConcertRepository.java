@@ -3,7 +3,9 @@ package repository;
 import managers.DBConectionManager;
 import model.Concert;
 import model.TheaterPlay;
+import service.AuditService;
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -16,7 +18,7 @@ public class DBConcertRepository implements ConcertRepository {
                  Connection con = DBConectionManager.getInstance().createConection();
                  PreparedStatement statement = con.prepareStatement(sql);
          ) {
-             java.sql.Date sqlDate = new java.sql.Date((c.getDate()).getTime());
+             java.sql.Date sqlDate = Date.valueOf(c.getDate());
              statement.setDate(1, sqlDate);
              statement.setString(2, c.getName());
              statement.setInt(3, c.getMaxNumberSeats());
@@ -24,6 +26,14 @@ public class DBConcertRepository implements ConcertRepository {
 
              statement.executeUpdate();
          } catch (SQLException e) {
+             e.printStackTrace();
+         }
+
+         Thread t = new Thread();
+         t.start();
+         try {
+             AuditService.getInstance().addToAuditFile("added "+c.getName(),t.getName());
+         } catch (IOException e) {
              e.printStackTrace();
          }
     }
@@ -51,9 +61,18 @@ public class DBConcertRepository implements ConcertRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        Thread t = new Thread();
+        t.start();
+        try {
+            AuditService.getInstance().addToAuditFile("searched for  "+ name,t.getName());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return Optional.empty();
+
     }
-    public static void deleteConcert(String name) {
+    @Override
+    public void deleteConcert(String name) {
         String sql = "DELETE FROM concerts WHERE name = '" + name + "' ";
         try (
                 Connection con = DBConectionManager.getInstance().createConection();
@@ -65,12 +84,28 @@ public class DBConcertRepository implements ConcertRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        Thread t = new Thread();
+        t.start();
+        try {
+            AuditService.getInstance().addToAuditFile("deleted "+ name,t.getName());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @Override
     public void showConcerts() {
         ArrayList<Concert> c = getConcerts();
         for (int i = 0; i < c.size(); i++) {
             System.out.println(c.get(i).toString());
+        }
+
+        Thread t1 = new Thread();
+        t1.start();
+        try {
+            AuditService.getInstance().addToAuditFile("show concerts",t1.getName());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     @Override

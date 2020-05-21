@@ -10,40 +10,43 @@ public class LoginService {
     private AdultRepository adultRepository;
     private ChildRepository childRepository;
     public LoginService() {
-        studentRepository = StudentRepository.build(StudentRepository.Type.DB);
-        adultRepository = AdultRepository.build(AdultRepository.Type.DB);
+        studentRepository = StudentRepository.build(StudentRepository.Type.FILE);
+        adultRepository = AdultRepository.build(AdultRepository.Type.FILE);
         childRepository = ChildRepository.build(ChildRepository.Type.DB);
     }
 
     public boolean login(User user) {
-        Optional<Student> o1 = studentRepository.findUserByName(user.getUsername());
-        Optional<Adult> o2 = adultRepository.findUserByName(user.getUsername());
-        Optional<Child> o3 = childRepository.findUserByName(user.getUsername());
+        Optional <Student> res1 = studentRepository.findUserByName(user.getUsername());
+        Optional<Adult> res2 = adultRepository.findUserByName(user.getUsername());
+        Optional<Child> res3 = childRepository.findUserByName(user.getUsername());
 
-        if(o1.isPresent()) {
-            User clt = o1.get();
-            return clt.getPassword().equals(user.getPassword());
-        }else if(o2.isPresent()){
-            User clt = o2.get();
-            return clt.getPassword().equals(user.getPassword());
-        }else if(o3.isPresent()){
-            User clt = o3.get();
-            return clt.getPassword().equals(user.getPassword());
+        if (res2.isPresent()){
+            Adult u = res2.get();
+            if(u.getPassword()!=null) {
+                if(u.getPassword().equals(user.getPassword())){
+                return true;
+                }
+            }
         }
-
-        return false;
-    }
-    public boolean loginDB (String username, String password) {
-
-        Optional <Student> res1 = studentRepository.findUserByName(username);
         if (res1.isPresent()){
             Student u = res1.get();
-            if(u.getPassword()!=null && u.getPassword().equals(password)){
-                return true;
-            }else System.out.println("password and username do not match");
-        }else System.out.println("user not registered");
+            if(u.getPassword()!=null) {
+                if (u.getPassword().equals(user.getPassword())) {
+                    return true;
+                }
+            }
+        }
+        if (res3.isPresent()) {
+            Child u = res3.get();
+            if (u.getPassword() != null) {
+                if(u.getPassword().equals(user.getPassword())) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
+
 
 //overloading method register
     public void register(Child client) {
@@ -54,10 +57,7 @@ public class LoginService {
         studentRepository.addStudent(client);
 
     }
-    public void deleteClient(Student client) {
-        String username = client.getUsername();
-        DBStudentRepository.deleteStudent(username);
-    }
+
 
     public void register(Adult client) {
         adultRepository.addAdult(client);

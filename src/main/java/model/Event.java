@@ -2,10 +2,11 @@ package model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 public class Event implements Comparable<Event> {
-    private Date date;
+    private LocalDate date;
     private String data;
     private String name;
     private int maxNumberSeats;
@@ -30,25 +31,24 @@ public class Event implements Comparable<Event> {
     }
     @Override
     public String toString() {
-        SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-MM-dd");
-        return  " date: " + dt1.format(date) +
+        return
                 "  name: '" + name + '\'' +
                 "  maxNumberSeats " + maxNumberSeats;
     }
 
     public void setDate(String d) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            this.date = dateFormat.parse(d);
-        } catch (ParseException e) {
-            e.printStackTrace();
+
+            this.date = LocalDate.parse(d);
+
+    }
+
+
+    public LocalDate getDate() {
+//            LocalDate date1 = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+            return date;
         }
-    }
 
-
-    public Date getDate() {
-        return date;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -63,14 +63,7 @@ public class Event implements Comparable<Event> {
     }
 
     public Event(String data, String name, int maxNumberSeats) {
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            this.date = dateFormat.parse(data);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
+        this.date = LocalDate.parse(data);
         this.name = name;
         this.maxNumberSeats = maxNumberSeats;
     }
@@ -78,8 +71,8 @@ public class Event implements Comparable<Event> {
     @Override
     public int compareTo(Event ev) {
         SimpleDateFormat dtf = new SimpleDateFormat("yyyy-MM-dd");
-        Date date1 = ev.getDate();
-        Date date2 = this.getDate();
+        LocalDate date1 = ev.getDate();
+        LocalDate date2 = this.getDate();
         return (date2.compareTo(date1));
     }
 

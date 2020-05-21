@@ -4,6 +4,7 @@ import exceptions.InexistentFileException;
 import model.Child;
 import model.Concert;
 import model.TheaterPlay;
+import service.AuditService;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -22,6 +23,13 @@ public class FileConcertRepository implements ConcertRepository {
         try(PrintWriter out = new PrintWriter(new FileWriter(file,true))){
             out.println(concert.getName() + "," + concert.getDate().toString()+ "," + concert.getMaxNumberSeats() + ","+concert.getPerformers());
         }catch(IOException e ){
+            e.printStackTrace();
+        }
+        Thread t = new Thread();
+        t.start();
+        try {
+            AuditService.getInstance().addToAuditFile("added "+ concert.getName(),t.getName());
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -57,6 +65,13 @@ public class FileConcertRepository implements ConcertRepository {
         for (int i = 0; i < c.size(); i++) {
             System.out.println(c.get(i).toString());
         }
+        Thread t = new Thread();
+        t.start();
+        try {
+            AuditService.getInstance().addToAuditFile("show all concerts ",t.getName());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -80,7 +95,18 @@ public class FileConcertRepository implements ConcertRepository {
         }catch (IOException e){
             e.printStackTrace();
         }
-
+        Thread t = new Thread();
+        t.start();
+        try {
+            AuditService.getInstance().addToAuditFile("searched for "+ name,t.getName());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return Optional.empty();
+    }
+
+    @Override
+    public void deleteConcert(String name) {
+        Optional<Concert> c =findConcert(name);
     }
 }

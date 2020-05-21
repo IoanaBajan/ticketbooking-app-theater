@@ -1,8 +1,12 @@
 package repository;
 import managers.DBConectionManager;
+import model.Child;
 import model.Student;
+import service.AuditService;
 
+import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class DBStudentRepository implements StudentRepository {
@@ -21,6 +25,13 @@ public class DBStudentRepository implements StudentRepository {
 
             statement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        Thread t = new Thread();
+        t.start();
+        try {
+            AuditService.getInstance().addToAuditFile(s.getUsername()+" registered",t.getName());
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -43,6 +54,7 @@ public class DBStudentRepository implements StudentRepository {
                 String p = set.getString("password");
                 String fn = set.getString("first_name");
                 int stid = set.getInt("studentIdNo");
+
                 return Optional.of(new Student(u, p, fn, stid));
 
             }
@@ -50,23 +62,58 @@ public class DBStudentRepository implements StudentRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        Thread t = new Thread();
+        t.start();
+        try {
+            AuditService.getInstance().addToAuditFile("searched for "+ username,t.getName());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return Optional.empty();
     }
 
-    public static void deleteStudent(String username) {
-        String sql = "DELETE FROM students WHERE username = '" + username + "' ";
+    @Override
+    public ArrayList<Student> getStudents() {
+        String sql = "SELECT * FROM students";
+
         try (
                 Connection con = DBConectionManager.getInstance().createConection();
-                Statement statement = con.createStatement();
+                PreparedStatement statement = con.prepareStatement(sql);
         ) {
-            statement.executeUpdate(sql);
-            System.out.println("User deleted");
+            ArrayList<Student> students = new ArrayList<>();
+            ResultSet set = statement.executeQuery();
 
+            while(set.next()) {
+                String u = set.getString("username");
+                String p = set.getString("password");
+                String fn = set.getString("first_name");
+                int stid = set.getInt("studentIdNo");
+
+
+                Student s = new Student(u, p, fn, stid);
+                students.add(s);
+            }
+            return students;
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
+    @Override
+    public void showStudents() {
+        for (int i = 0; i < getStudents().size(); i++) {
+            System.out.println(getStudents().get(i).toString());
+        }
+        Thread t = new Thread();
+        t.start();
+        try {
+            AuditService.getInstance().addToAuditFile("printed all student clients",t.getName());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public static DBStudentRepository getInstance() {
         return SingletonHolder.INSTANCE;
     }

@@ -1,6 +1,7 @@
 package service;
 
 import repository.DBStudentRepository;
+import repository.DBTheaterPlaysRepository;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -12,7 +13,8 @@ import static java.lang.System.currentTimeMillis;
 
 public class AuditService {
     Timestamp time;
-    public void addToAuditFile(String filePath, String action, String threadName) throws IOException {
+    private final String filePath = "AuditFile.csv";
+    public void addToAuditFile(String action, String threadName) throws IOException {
         FileWriter fw = new FileWriter(filePath, true);
 
         BufferedWriter bufferedWriter = new BufferedWriter(fw);
@@ -24,7 +26,13 @@ public class AuditService {
         printWriter.flush();
         printWriter.close();
     }
+
+    public static AuditService getInstance() {
+        return AuditService.SingletonHolder.INSTANCE;
+    }
+
     private static class SingletonHolder {
-        private static DBStudentRepository INSTANCE = new DBStudentRepository();
+        private static AuditService INSTANCE = new AuditService();
+
     }
 }

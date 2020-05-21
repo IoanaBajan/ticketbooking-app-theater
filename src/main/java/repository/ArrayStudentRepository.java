@@ -1,5 +1,6 @@
 package repository;
 
+import model.Concert;
 import model.Student;
 import repository.StudentRepository;
 
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public class ArrayStudentRepository implements StudentRepository {
-    private static ArrayList<Student> students = new ArrayList<> ();
+    private ArrayList<Student> students = new ArrayList<> ();
 
     @Override
     public void addStudent(Student c) {
@@ -25,5 +26,15 @@ public class ArrayStudentRepository implements StudentRepository {
         }
         return Optional.empty();
 
+    }
+
+    @Override
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
+    public void showStudents() {
+        for (int i = 0; i < students.size(); i++) {
+            System.out.println(students.get(i).toString());
+        }
     }
 }

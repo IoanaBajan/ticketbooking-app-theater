@@ -51,19 +51,19 @@ public class BuyController implements Initializable {
         TheaterPlaysRepository theaterPlaysRepository = TheaterPlaysRepository.build(TheaterPlaysRepository.Type.DB);
         ConcertRepository concertRepository = ConcertRepository.build(ConcertRepository.Type.DB);
 
-        if(S.findUserByName(user).isPresent() && theaterPlaysRepository.findPlay(ev_name).isPresent()){
+        if(S.findUserByName(user).isPresent() && theaterPlaysRepository.findPlay(ev_name)!=null){
             Optional<Student> client = S.findUserByName(user);
-            Optional<TheaterPlay> even = theaterPlaysRepository.findPlay(ev_name);
+            TheaterPlay even = theaterPlaysRepository.findPlay(ev_name);
             calcPrice(client,even);
 
-        }else if(A.findUserByName(user).isPresent() && theaterPlaysRepository.findPlay(ev_name).isPresent()){
+        }else if(A.findUserByName(user).isPresent() && theaterPlaysRepository.findPlay(ev_name)!=null){
             Optional<Adult> client = A.findUserByName(user);
-            Optional<TheaterPlay> even = theaterPlaysRepository.findPlay(ev_name);
+            TheaterPlay even = theaterPlaysRepository.findPlay(ev_name);
             calcPrice(client,even);
 
-        } else if(C.findUserByName(user).isPresent() && theaterPlaysRepository.findPlay(ev_name).isPresent()){
+        } else if(C.findUserByName(user).isPresent() && theaterPlaysRepository.findPlay(ev_name)!=null){
             Optional<Child> client = C.findUserByName(user);
-            Optional<TheaterPlay> even = theaterPlaysRepository.findPlay(ev_name);
+            TheaterPlay even = theaterPlaysRepository.findPlay(ev_name);
             calcPrice(client,even);
 
         }

@@ -1,6 +1,5 @@
 package repository;
 
-import model.Student;
 import model.TheaterPlay;
 
 import java.util.ArrayList;
@@ -18,24 +17,33 @@ public class ArrayTheaterPlaysRepository implements TheaterPlaysRepository{
     }
 
     @Override
-    public Optional<TheaterPlay> findPlay(String name) {
+    public TheaterPlay findPlay(String name) {
         for (TheaterPlay c : plays) {
             if (c != null) {
                 if (name.equals(c.getName())) {
-                    return Optional.of(c);
+                    return c;
                 }
             }
         }
-        return Optional.empty();
+        return null;
     }
+
+    @Override
+    public void deletePlay(String name) {
+        TheaterPlay p = findPlay(name);
+        plays.remove(p);
+
+    }
+
+    @Override
+    public void updatePlay(String name, String choice, String newValue) {
+
+    }
+
     public void showPlays() {
         for (int i = 0; i < (plays).size(); i++) {
             System.out.println(plays.get(i).toString());
         }
-    }
-
-    public static void removePlay(TheaterPlay e) {
-        plays.remove(e);
     }
 
 }

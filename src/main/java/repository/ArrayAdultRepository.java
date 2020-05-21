@@ -11,6 +11,10 @@ public class ArrayAdultRepository implements AdultRepository {
         return adults;
     }
 
+    public ArrayAdultRepository() {
+        adults.add(new Adult("testArray","12345","Ion"));
+    }
+
     @Override
     public void addAdult(Adult a) {
             adults.add(a);
@@ -26,5 +30,11 @@ public class ArrayAdultRepository implements AdultRepository {
             }
         }
         return Optional.empty();
+    }
+
+    public void showAdults() {
+        for (int i = 0; i < adults.size(); i++) {
+            System.out.println(adults.get(i).toString());
+        }
     }
 }

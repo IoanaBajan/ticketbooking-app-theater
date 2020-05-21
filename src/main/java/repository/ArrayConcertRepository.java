@@ -28,13 +28,18 @@ public class ArrayConcertRepository implements ConcertRepository {
         }
         return Optional.empty();
     }
+
+    @Override
+    public void deleteConcert(String name) {
+        Optional<Concert> c = findConcert(name);
+        concerts.remove(c);
+
+    }
+
     public void showConcerts() {
         for (int i = 0; i < (concerts).size(); i++) {
             System.out.println(concerts.get(i).toString());
         }
-    }
-    public void removeConcerts(Concert e) {
-        concerts.remove(e);
     }
     public  ArrayConcertRepository getInstance() {
         return ArrayConcertRepository.SingletonHolder.INSTANCE;

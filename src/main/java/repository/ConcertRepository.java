@@ -11,7 +11,7 @@ public interface ConcertRepository {
     void showConcerts();
     ArrayList<Concert> getConcerts();
     Optional<Concert> findConcert(String name);
-
+    void deleteConcert(String name);
     static ConcertRepository build(ConcertRepository.Type type) {
         switch (type){
             case DB: return new DBConcertRepository();
