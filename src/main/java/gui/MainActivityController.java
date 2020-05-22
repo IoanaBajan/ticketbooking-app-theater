@@ -190,7 +190,7 @@ public class MainActivityController implements Initializable {
                 int s = parseInt(add_maxNumberSeats.getText());
                 String d = add_director.getText();
                 String a = add_actors.getText();
-//                TheaterPlay e = new TheaterPlay(u,n, s, d, a);
+//                TheaterPlay e = new TheaterPlay(u,n,s,d,a);
                 TheaterPlaysRepository theaterPlaysRepository = TheaterPlaysRepository.build(TheaterPlaysRepository.Type.DB);
 //                theaterPlaysRepository.addPlay(e);
             });

@@ -10,8 +10,8 @@ public class LoginService {
     private AdultRepository adultRepository;
     private ChildRepository childRepository;
     public LoginService() {
-        studentRepository = StudentRepository.build(StudentRepository.Type.FILE);
-        adultRepository = AdultRepository.build(AdultRepository.Type.FILE);
+        studentRepository = StudentRepository.build(StudentRepository.Type.DB);
+        adultRepository = AdultRepository.build(AdultRepository.Type.DB);
         childRepository = ChildRepository.build(ChildRepository.Type.DB);
     }
 

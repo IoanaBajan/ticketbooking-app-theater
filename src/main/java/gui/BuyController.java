@@ -40,7 +40,7 @@ public class BuyController implements Initializable {
     private TextField eventName;
     private int s;
     private String payMethod = " ";
-
+    private int price;
     @FXML
     void price(MouseEvent event){
         String ev_name = eventName.getText();
@@ -71,6 +71,7 @@ public class BuyController implements Initializable {
     void cardDetail(String method){
         if(method.equals("cash")){
             payMethod = "Cash";
+
         }else if(method.equals("card")) {
             Label numeCard = new Label("nume card");
             numeCard.setFont(new Font("Verdana", 12));
@@ -99,17 +100,20 @@ public class BuyController implements Initializable {
             System.out.println(cvv_add.getText());
             grid.getChildren().add(cvv_add);
             GridPane.setConstraints(cvv_add, 0, 3);
-
-            String name =add_name.getText();
-            String CVV =cvv_add.getText();
-            payMethod = name + " " + CVV;
+            Button b = new Button("add");
+            grid.getChildren().add(b);
+            GridPane.setConstraints(b, 1, 3);
+            b.setOnMouseClicked(ev-> {
+                String name = add_name.getText();
+                String CVV = cvv_add.getText();
+                payMethod = name + " " + CVV;
+            });
         }
     }
     void calcPrice(Object client, Object event){
         int seat = getSeats();
-//                Integer.parseInt(seats.getText());
         BuyService buy = new BuyService();
-        int price = buy.showPrice(client,event,seat);
+        price = buy.showPrice(client,event,seat);
         if(seat >68){
             Text text = new Text("seat not available");
             flow.getChildren().clear();
@@ -137,23 +141,31 @@ public class BuyController implements Initializable {
     }
     @FXML
     void placeorder(MouseEvent event){
-
-    }
-    void placeOrder(Object client, Object event){
         int seat =getSeats();
-        BuyService buy = new BuyService();
-        int price = buy.showPrice(client,event,seat);
         System.out.println(price);
         String ev_date = eventDate.getValue().toString();
-//        Order o = new Order(getPayMethod(),ev_date,seat,price);
-
+        Order o = new Order(getPayMethod(),ev_date,seat,price);
+        DBOrdersRepository.getInstance().addOrder(o);
     }
+
     void setSeats(int text){
-     s = text;
+        TextFlow t = new TextFlow();
+     String d = eventDate.getValue().toString();
+     if(DBOrdersRepository.getInstance().findByDate(d).isPresent() && DBOrdersRepository.getInstance().isSeatAvailable(text).isPresent()){
+         t.getChildren().add(new Text("seat is not available"));
+         paneSeats.getChildren().add(t);
+     }else{
+         s = text;
+         t.getChildren().clear();
+
+     }
         System.out.println(s);
     }
-     public int getSeats(){
+     private int getSeats(){
         return s;
+     }
+      private String getPayMethod(){
+        return payMethod;
      }
 
     @Override
