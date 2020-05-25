@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #72B69C;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.BuyController">
    <children>
-      <Pane fx:id="detail" layoutX="386.0" prefHeight="400.0" prefWidth="208.0">
+      <Pane fx:id="detail" layoutX="392.0" prefHeight="400.0" prefWidth="208.0">
          <children>
             <TextField fx:id="eventName" layoutX="25.0" layoutY="41.0" />
             <Label layoutX="25.0" layoutY="14.0" text="Search event" textFill="#f8f8f8">
@@ -25,20 +25,20 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="showPrice" layoutX="14.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#price" text="Calculate price" />
+            <Button fx:id="showPrice" layoutX="14.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#price" text="Place Order" />
             <TextFlow fx:id="flow" layoutX="116.0" layoutY="312.0" prefHeight="37.0" prefWidth="93.0" />
             <Pane fx:id="payment" layoutX="16.0" layoutY="182.0" prefHeight="120.0" prefWidth="184.0" />
          </children>
       </Pane>
       <Button layoutX="86.0" layoutY="14.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="194.0" text="Scene" />
-      <TextField fx:id="username" layoutX="109.0" layoutY="314.0" />
+      <TextField fx:id="username" layoutX="109.0" layoutY="353.0" />
       <Pane fx:id="paneSeats" layoutX="37.0" layoutY="51.0" prefHeight="200.0" prefWidth="349.0" />
-      <Button fx:id="placeorder" layoutX="52.0" layoutY="359.0" mnemonicParsing="false" onMouseClicked="#placeorder" prefHeight="26.0" prefWidth="174.0" text="Place Order" />
-      <Label layoutX="28.0" layoutY="318.0" text="Username" textFill="WHITE" />
-      <Label layoutX="300.0" layoutY="291.0" prefHeight="22.0" prefWidth="93.0" text="Pic a seat" textFill="#fdfdfd">
+      <Label layoutX="25.0" layoutY="357.0" text="Username" textFill="WHITE" />
+      <Label layoutX="86.0" layoutY="292.0" prefHeight="22.0" prefWidth="228.0" text="Pick a seat before placing order" textFill="#fdfdfd">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
+      <TextFlow fx:id="message" layoutX="83.0" layoutY="314.0" prefHeight="26.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

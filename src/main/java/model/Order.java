@@ -1,15 +1,37 @@
 package model;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
 public class Order {
     private String payment;
-    private String date;
-//    private int noTickets;
+    private LocalDate date;
     private int seats;
-//    private int eventID;
-//    private int clientID;
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public String getEventName() {
+        return eventName;
+    }
+
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
+    }
+
+    public String getClientName() {
+        return clientName;
+    }
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
+    }
+
+    private String eventName;
+    private String clientName;
     private int price;
 
     public String getPayment() {
@@ -20,12 +42,15 @@ public class Order {
         this.payment = payment;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
     public void setDate(String date) {
-        this.date = date;
+        LocalDate d = LocalDate.parse(date);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String datetemp = formatter.format(d);
+        this.date = LocalDate.parse(datetemp);
     }
 
     public int getSeats() {
@@ -44,12 +69,12 @@ public class Order {
         this.price = price;
     }
 
-    public Order(String payment, String date, int seats, int price) {
+    public Order(String payment, LocalDate date, int seats, int price,String eventName,String clientName) {
         this.payment = payment;
         this.date = date;
         this.seats = seats;
-//        this.eventID = eventID;
-//        this.clientID = clientID;
+        this.eventName = eventName;
+        this.clientName = clientName;
         this.price = price;
     }
 }

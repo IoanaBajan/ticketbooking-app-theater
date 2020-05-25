@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #88465f;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainActivityController">
+<AnchorPane prefHeight="750.0" prefWidth="800.0" style="-fx-background-color: #88465f;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainActivityController">
     <children>
       <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="50.0">
         <tabs>
@@ -13,7 +13,7 @@
             <content>
               <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="696.0" prefWidth="1200.0">
                      <children>
-                        <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="1118.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="1020.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@theater.png" />
                            </image>
@@ -23,7 +23,7 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <TextFlow fx:id="tf_flow" layoutX="46.0" layoutY="107.0" prefHeight="463.0" prefWidth="1065.0" />
+                        <TextFlow fx:id="tf_flow" layoutX="49.0" layoutY="116.0" prefHeight="463.0" prefWidth="1065.0" />
                         <Button id="showConcerts" fx:id="showConcerts" layoutX="230.0" layoutY="37.0" mnemonicParsing="false" onMouseClicked="#showConcerts" prefHeight="31.0" prefWidth="166.0" text="Show future concerts" textFill="#bf0c63">
                            <font>
                               <Font size="15.0" />
@@ -52,8 +52,9 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
+                        <TextFlow id="infoPane" fx:id="infoPane" layoutX="55.0" layoutY="158.0" prefHeight="500.0" prefWidth="1127.0" />
                         <TextFlow fx:id="flow" layoutX="317.0" layoutY="213.0" prefHeight="200.0" prefWidth="200.0" />
-                        <TextFlow id="infoPane" fx:id="infoPane" layoutX="55.0" layoutY="158.0" prefHeight="551.0" prefWidth="1127.0" />
+                        <TextFlow fx:id="dialogPane" layoutX="775.0" layoutY="557.0" prefHeight="170.0" prefWidth="317.0" />
                      </children></AnchorPane>
             </content>
           </Tab>

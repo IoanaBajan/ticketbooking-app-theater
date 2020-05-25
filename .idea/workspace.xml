@@ -2,61 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d69bf9f7-4d1b-4272-af51-73b853dfbe31" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/repository/DBOrdersRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/PlaceOrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AuditFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/AuditFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProiectMagic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProiectMagic.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/BuyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/BuyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/MainActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/MainActivityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/ArrayStudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/ArrayStudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/ArrayTheaterPlaysRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/ArrayTheaterPlaysRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/DBOrdersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/DBOrdersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/BuyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/BuyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/InformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/InformationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ReducedTickets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ReducedTickets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/Tickets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/Tickets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/calculateFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/calculateFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/buy_ticket.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/buy_ticket.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main_activity.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main_activity.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/register.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/buy_ticket.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/buy_ticket.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/BuyController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/BuyController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/BuyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/BuyController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/LoginController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/MainActivityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/MainActivityController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/RegisterController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/RegisterController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/RegisterController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/RegisterController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/RegisterController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Concert.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Concert.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Event.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main_activity.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main_activity.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Admin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/TheaterPlay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/TheaterPlay.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/AdultRepository$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/AdultRepository$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/AdultRepository$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/AdultRepository$Type.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/AdultRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/AdultRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/ArrayAdultRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/ArrayAdultRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/ArrayConcertRepository$SingletonHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/ArrayConcertRepository$SingletonHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/ArrayConcertRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/ArrayConcertRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/register.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/repository/ArrayStudentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/ArrayStudentRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/repository/ArrayTheaterPlaysRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/ArrayTheaterPlaysRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/ChildRepository$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/ChildRepository$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/ChildRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/ChildRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/ConcertRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/ConcertRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/DBAdultRepository$SingletonHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/DBAdultRepository$SingletonHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/DBAdultRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/DBAdultRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/DBChildRepository$SingletonHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/DBChildRepository$SingletonHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/DBChildRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/DBChildRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/DBConcertRepository$SingletonHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/DBConcertRepository$SingletonHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/DBConcertRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/DBConcertRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/DBStudentRepository$SingletonHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/DBStudentRepository$SingletonHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/DBStudentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/DBStudentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/DBTheaterPlaysRepository$SingletonHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/DBTheaterPlaysRepository$SingletonHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/DBTheaterPlaysRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/DBTheaterPlaysRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/FileAdultRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/FileAdultRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/FileConcertRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/FileConcertRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/FileStudentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/FileStudentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/FileTheaterPlaysRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/FileTheaterPlaysRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/StudentRepository$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/StudentRepository$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/StudentRepository$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/StudentRepository$Type.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/StudentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/StudentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/TheaterPlaysRepository$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/TheaterPlaysRepository$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/TheaterPlaysRepository$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/TheaterPlaysRepository$Type.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/TheaterPlaysRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/TheaterPlaysRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/AuditService$SingletonHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/AuditService$SingletonHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/AuditService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/AuditService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/InformationService$SingletonHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/InformationService$SingletonHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repository/DBOrdersRepository$SingletonHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/DBOrdersRepository$SingletonHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repository/DBOrdersRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/DBOrdersRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/BuyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/BuyService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/service/InformationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/InformationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/LoginService$SingletonHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/LoginService$SingletonHolder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/service/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/LoginService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/ReducedTickets.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/ReducedTickets.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/Tickets.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/Tickets.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/calculateFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/calculateFactory.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,10 +276,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="166" y="117" key="#com.intellij.ide.macro.MacrosDialog/0.0.1536.824@0.0.1536.824" timestamp="1589448541873" />
-    <state x="190" y="99" key="#com.intellij.ide.util.MemberChooser" timestamp="1590178053284">
+    <state x="190" y="99" key="#com.intellij.ide.util.MemberChooser" timestamp="1590447841029">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="190" y="99" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1590178053284" />
+    <state x="190" y="99" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1590447841029" />
     <state x="116" y="191" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1586353563052">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -333,38 +324,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="714" y="106" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1590046972549" />
-    <state width="1493" height="186" key="GridCell.Tab.0.bottom" timestamp="1590187067018">
+    <state width="1493" height="172" key="GridCell.Tab.0.bottom" timestamp="1590450016798">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="186" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590187067018" />
-    <state width="1493" height="186" key="GridCell.Tab.0.center" timestamp="1590187067015">
+    <state width="1493" height="172" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590450016798" />
+    <state width="1493" height="172" key="GridCell.Tab.0.center" timestamp="1590450016798">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="186" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1590187067015" />
-    <state width="1493" height="186" key="GridCell.Tab.0.left" timestamp="1590187067015">
+    <state width="1493" height="172" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1590450016798" />
+    <state width="1493" height="172" key="GridCell.Tab.0.left" timestamp="1590450016797">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="186" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1590187067015" />
-    <state width="1493" height="186" key="GridCell.Tab.0.right" timestamp="1590187067015">
+    <state width="1493" height="172" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1590450016797" />
+    <state width="1493" height="172" key="GridCell.Tab.0.right" timestamp="1590450016798">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="186" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1590187067015" />
-    <state width="726" height="258" key="GridCell.Tab.1.bottom" timestamp="1590092736827">
+    <state width="1493" height="172" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1590450016798" />
+    <state width="1493" height="258" key="GridCell.Tab.1.bottom" timestamp="1590444079242">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="726" height="258" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590092736827" />
-    <state width="726" height="258" key="GridCell.Tab.1.center" timestamp="1590092736827">
+    <state width="1493" height="258" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590444079242" />
+    <state width="1493" height="258" key="GridCell.Tab.1.center" timestamp="1590444079242">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="726" height="258" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1590092736827" />
-    <state width="726" height="258" key="GridCell.Tab.1.left" timestamp="1590092736827">
+    <state width="1493" height="258" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1590444079242" />
+    <state width="1493" height="258" key="GridCell.Tab.1.left" timestamp="1590444079242">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="726" height="258" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1590092736827" />
-    <state width="726" height="258" key="GridCell.Tab.1.right" timestamp="1590092736827">
+    <state width="1493" height="258" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1590444079242" />
+    <state width="1493" height="258" key="GridCell.Tab.1.right" timestamp="1590444079242">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="726" height="258" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1590092736827" />
+    <state width="1493" height="258" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1590444079242" />
     <state x="429" y="127" key="GuiDesigner.FormSource.Dialog" timestamp="1589208119334">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -385,10 +376,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="647" y="206" key="UIDesigner.ListEditorDialog/0.0.1536.824@0.0.1536.824" timestamp="1589208761273" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1590177596548">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1590437286897">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1590177596548" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1590437286897" />
     <state x="526" y="305" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1589390935963">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

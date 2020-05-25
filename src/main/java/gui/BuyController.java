@@ -16,16 +16,19 @@ import javafx.scene.text.TextFlow;
 import model.*;
 import repository.*;
 import service.BuyService;
+import service.PlaceOrderService;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import static java.lang.Integer.parseInt;
 
 public class BuyController implements Initializable {
     @FXML
     private Pane payment;
+    @FXML
+    private TextFlow message;
     @FXML
     private TextFlow flow;
     @FXML
@@ -50,22 +53,27 @@ public class BuyController implements Initializable {
         ChildRepository C = ChildRepository.build(ChildRepository.Type.DB);
         TheaterPlaysRepository theaterPlaysRepository = TheaterPlaysRepository.build(TheaterPlaysRepository.Type.DB);
         ConcertRepository concertRepository = ConcertRepository.build(ConcertRepository.Type.DB);
+        User client = new Client();
+        if(S.findUserByName(user).isPresent()) {
+            Optional<Student> s = S.findUserByName(user);
+            client = new User(s.get().getUsername(),s.get().getPassword());
 
-        if(S.findUserByName(user).isPresent() && theaterPlaysRepository.findPlay(ev_name)!=null){
-            Optional<Student> client = S.findUserByName(user);
+        }else if(A.findUserByName(user).isPresent()){
+            Optional<Adult> a = A.findUserByName(user);
+            client = new User(a.get().getUsername(),a.get().getPassword());
+
+        } else if(C.findUserByName(user).isPresent()){
+            Optional<Child> c = C.findUserByName(user);
+            client = new User(c.get().getUsername(),c.get().getPassword());
+        }
+
+        if(theaterPlaysRepository.findPlay(ev_name)!=null){
             TheaterPlay even = theaterPlaysRepository.findPlay(ev_name);
             calcPrice(client,even);
 
-        }else if(A.findUserByName(user).isPresent() && theaterPlaysRepository.findPlay(ev_name)!=null){
-            Optional<Adult> client = A.findUserByName(user);
-            TheaterPlay even = theaterPlaysRepository.findPlay(ev_name);
-            calcPrice(client,even);
-
-        } else if(C.findUserByName(user).isPresent() && theaterPlaysRepository.findPlay(ev_name)!=null){
-            Optional<Child> client = C.findUserByName(user);
-            TheaterPlay even = theaterPlaysRepository.findPlay(ev_name);
-            calcPrice(client,even);
-
+        }else if(concertRepository.findConcert(ev_name).isPresent()){
+            Optional<Concert> even = concertRepository.findConcert(ev_name);
+            calcPrice(client,even.get());
         }
     }
     void cardDetail(String method){
@@ -85,7 +93,6 @@ public class BuyController implements Initializable {
             GridPane.setConstraints(numeCard, 0, 0);
 
             TextField add_name = new TextField();
-            System.out.println(add_name.getText());
             grid.getChildren().add(add_name);
             GridPane.setConstraints(add_name, 0, 1);
 
@@ -97,7 +104,6 @@ public class BuyController implements Initializable {
             GridPane.setConstraints(cvv, 0, 2);
 
             TextField cvv_add = new TextField();
-            System.out.println(cvv_add.getText());
             grid.getChildren().add(cvv_add);
             GridPane.setConstraints(cvv_add, 0, 3);
             Button b = new Button("add");
@@ -110,55 +116,80 @@ public class BuyController implements Initializable {
             });
         }
     }
-    void calcPrice(Object client, Object event){
-        int seat = getSeats();
+    void calcPrice(User client, Event event){
         BuyService buy = new BuyService();
-        price = buy.showPrice(client,event,seat);
-        if(seat >68){
-            Text text = new Text("seat not available");
-            flow.getChildren().clear();
-            flow.setLineSpacing(15);
-            flow.getChildren().add(text);
-            text.setFill(Color.WHITE);
-            text.setFont(new Font("Verdana", 20));
+        PlaceOrderService p = new PlaceOrderService();
+        int seat = getSeats();
+        LocalDate ev_date = eventDate.getValue();
+        TextFlow t = new TextFlow();
+        System.out.println(ev_date.toString() + event.getName());
+        if( !DBOrdersRepository.getInstance().isSeatAvailable(seat,ev_date.toString(),event.getName())) {
+            message.getChildren().add(new Text("seat is not available"));
+            paneSeats.getChildren().add(t);
         }else {
-            if (price != -1) {
+            message.getChildren().clear();
+            price = buy.showPrice(client, event, seat);
+            System.out.println(price);
+            TheaterPlaysRepository theaterPlaysRepository = TheaterPlaysRepository.build(TheaterPlaysRepository.Type.DB);
+            ConcertRepository concertRepository = ConcertRepository.build(ConcertRepository.Type.DB);
+
+            if (seat > 68) {
+                Text text = new Text("seat not available");
                 flow.getChildren().clear();
-                Text text = new Text(price + " lei");
                 flow.setLineSpacing(15);
                 flow.getChildren().add(text);
                 text.setFill(Color.WHITE);
                 text.setFont(new Font("Verdana", 20));
             } else {
-                flow.getChildren().clear();
-                Text text = new Text("the event is soldout");
-                flow.setLineSpacing(15);
-                flow.getChildren().add(text);
-                text.setFill(Color.WHITE);
-                text.setFont(new Font("Verdana", 20));
+                if (price != -1) {
+                    flow.getChildren().clear();
+                    Text text = new Text(price + " lei");
+                    flow.setLineSpacing(15);
+                    flow.getChildren().add(text);
+                    text.setFill(Color.WHITE);
+                    text.setFont(new Font("Verdana", 20));
+                } else {
+                    flow.getChildren().clear();
+                    Text text = new Text("the event is soldout");
+                    flow.setLineSpacing(15);
+                    flow.getChildren().add(text);
+                    text.setFill(Color.WHITE);
+                    text.setFont(new Font("Verdana", 20));
+                }
+            }
+            Order o = new Order(getPayMethod(), ev_date, seat, price, event.getName(), client.getUsername());
+            if (theaterPlaysRepository.findPlay(event.getName()) != null) {
+                TheaterPlay play = theaterPlaysRepository.findPlay(event.getName());
+                if (p.isOrderValid(o, play)) {
+
+                    DBOrdersRepository.getInstance().addOrder(o);
+                } else {
+                    System.out.println("show not available");
+                    flow.getChildren().clear();
+                    Text text = new Text(" show not available on that day");
+                    flow.setLineSpacing(8);
+                    flow.getChildren().add(text);
+                    text.setFill(Color.WHITE);
+                    text.setFont(new Font("Verdana", 10));
+                }
+            } else if (concertRepository.findConcert(event.getName()).isPresent()) {
+                Concert concert = concertRepository.findConcert(event.getName()).get();
+                if (p.isOrderValid(o, concert)) {
+                    DBOrdersRepository.getInstance().addOrder(o);
+                } else {
+                    System.out.println("show not available");
+                    flow.getChildren().clear();
+                    Text text = new Text(" show not available on that day");
+                    flow.setLineSpacing(8);
+                    flow.getChildren().add(text);
+                    text.setFill(Color.WHITE);
+                    text.setFont(new Font("Verdana", 10));
+                }
             }
         }
     }
-    @FXML
-    void placeorder(MouseEvent event){
-        int seat =getSeats();
-        System.out.println(price);
-        String ev_date = eventDate.getValue().toString();
-        Order o = new Order(getPayMethod(),ev_date,seat,price);
-        DBOrdersRepository.getInstance().addOrder(o);
-    }
-
-    void setSeats(int text){
-        TextFlow t = new TextFlow();
-     String d = eventDate.getValue().toString();
-     if(DBOrdersRepository.getInstance().findByDate(d).isPresent() && DBOrdersRepository.getInstance().isSeatAvailable(text).isPresent()){
-         t.getChildren().add(new Text("seat is not available"));
-         paneSeats.getChildren().add(t);
-     }else{
-         s = text;
-         t.getChildren().clear();
-
-     }
+    void setSeats(int seat){
+         this.s = seat;
         System.out.println(s);
     }
      private int getSeats(){
@@ -193,11 +224,8 @@ public class BuyController implements Initializable {
                 .addListener(new ChangeListener<String>() {
                     @Override
                     public void changed(ObservableValue ov, String t, String t1) {
-                        System.out.println(ov);
-                        System.out.println(t);
-                        System.out.println(t1);
                         option[0] = t1;
-                        System.out.println("OPTION" + option[0]);
+                        System.out.println("OPTION " + option[0]);
                         if (option[0].equals("cash")) {
                             cardDetail("cash");
                         } else if (option[0].equals("card")) {

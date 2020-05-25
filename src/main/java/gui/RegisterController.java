@@ -6,7 +6,11 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -14,11 +18,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import model.*;
 import repository.DBAdultRepository;
 import repository.DBStudentRepository;
 import service.LoginService;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -211,7 +217,23 @@ public class RegisterController implements Initializable {
         c1.setOnAction(event);
         c2.setOnAction(event);
     }
+    @FXML
+    void login(MouseEvent event){
+        System.out.println("clicked");
+        Parent view2 = null;
+        try {
+            view2 = FXMLLoader.load(getClass().getResource("/login.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setScene(new Scene(view2));
+        stage.setTitle("Login Page");
+        stage.show();
+
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

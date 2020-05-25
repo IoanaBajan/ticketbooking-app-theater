@@ -47,7 +47,13 @@ public class LoginService {
         return false;
     }
 
-
+    public boolean loginAdmin(String username, String password, String secondPassword){
+        User u = new User(username,password);
+        if(login(u) && secondPassword.equals("123LetMeIn")){
+            return true;
+        }
+        return false;
+    }
 //overloading method register
     public void register(Child client) {
         childRepository.addChild(client);
@@ -57,7 +63,6 @@ public class LoginService {
         studentRepository.addStudent(client);
 
     }
-
 
     public void register(Adult client) {
         adultRepository.addAdult(client);

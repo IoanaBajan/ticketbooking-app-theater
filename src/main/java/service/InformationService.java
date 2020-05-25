@@ -9,11 +9,11 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class InformationService {
-    AdultRepository adultRepository = AdultRepository.build(AdultRepository.Type.ARRAY);
-    StudentRepository studentRepository = StudentRepository.build(StudentRepository.Type.ARRAY);
+    AdultRepository adultRepository = AdultRepository.build(AdultRepository.Type.DB);
+    StudentRepository studentRepository = StudentRepository.build(StudentRepository.Type.DB);
     ChildRepository childRepository = ChildRepository.build(ChildRepository.Type.DB);
-    TheaterPlaysRepository theaterPlaysRepository = TheaterPlaysRepository.build(TheaterPlaysRepository.Type.ARRAY);
-    ConcertRepository concertRepository = ConcertRepository.build(ConcertRepository.Type.ARRAY);
+    TheaterPlaysRepository theaterPlaysRepository = TheaterPlaysRepository.build(TheaterPlaysRepository.Type.DB);
+    ConcertRepository concertRepository = ConcertRepository.build(ConcertRepository.Type.DB);
 
     public void showInfo(){
         AuditService audit = new AuditService();
@@ -169,10 +169,10 @@ public class InformationService {
             String username = s.next();
             System.out.println("enter password");
             String password = s.next();
-            User user = new User(username,password);
-
             System.out.println("enter passphrase");
-            if(s.next().equals("123") && LoginService.getInstance().login(user)) {
+            String passphrase = s.next();
+            if(LoginService.getInstance().loginAdmin(username,password,passphrase)) {
+                System.out.println("login reusit");
                 int typeOfService = 1;
                 while (typeOfService != 0) {
                 System.out.println("1.show all clients");

@@ -9,12 +9,10 @@ public class Tickets implements CalculatePrice {
 
 
     private int price;
-    private int concertPrice = 60;
-    private int playPrice = 30;
-    private int charityEvPrice = 0;
-    private double studentDiscount = 0.5;
-    private int firstClass = 10;
-    private int basicClass = 40;
+    private final int CONCERT_PRICE = 60;
+    private final int PLAY_PRICE = 70;
+    private final int FIRST_CLASS = 10;
+    private final int BASIC_CLASS = 38;
 
     public void setPrice(int price) {
         this.price = price;
@@ -28,23 +26,20 @@ public class Tickets implements CalculatePrice {
         if(event instanceof Concert) {
             if (((Concert) event).soldout < ((Concert) event).getMaxNumberSeats()) {
                 ((Concert) event).soldout++;
-                price = concertPrice;
-                System.out.println(price + " lei ticket to" + event.toString()+" " + ((Concert) event).soldout+ Arrays.toString(((Concert) event).getOccupiedSeats()));
-
+                price = CONCERT_PRICE;
             } else return -1;
         }
 
         else if(event instanceof TheaterPlay) {
             if (((TheaterPlay) event).soldout < ((TheaterPlay) event).getMaxNumberSeats()) {
                 ((TheaterPlay) event).soldout++;
-                price = playPrice;
+                price = PLAY_PRICE;
             } else return -1;
         }
 
-        if(seatNr <basicClass && seatNr>firstClass) price += 0.2*price;
-        if(seatNr<firstClass) price += 0.25*price;
+        if(seatNr <BASIC_CLASS && seatNr>FIRST_CLASS) price += 0.2*price;
+        if(seatNr<FIRST_CLASS) price += 0.25*price;
         setPrice(price);
-        System.out.println(price);
     return price;
     }
 }

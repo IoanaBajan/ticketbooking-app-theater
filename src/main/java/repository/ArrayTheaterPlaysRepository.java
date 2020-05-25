@@ -3,7 +3,6 @@ package repository;
 import model.TheaterPlay;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 public class ArrayTheaterPlaysRepository implements TheaterPlaysRepository{
     private static ArrayList<TheaterPlay> plays = new ArrayList<> ();
@@ -37,7 +36,35 @@ public class ArrayTheaterPlaysRepository implements TheaterPlaysRepository{
 
     @Override
     public void updatePlay(String name, String choice, String newValue) {
-
+        TheaterPlay p = findPlay(name);
+        if(p!=null){
+            if(choice == "actors"){
+                for (TheaterPlay c : plays) {
+                    if (c != null) {
+                        if (name.equals(c.getName())) {
+                            c.setActors(newValue);
+                        }
+                    }
+                }
+            }
+            if(choice == "startDate"){
+                for (TheaterPlay c : plays) {
+                    if (c != null) {
+                        if (name.equals(c.getName())) {
+                            c.setDate(newValue);
+                        }
+                    }
+                }
+            }if(choice == "endDate"){
+                for (TheaterPlay c : plays) {
+                    if (c != null) {
+                        if (name.equals(c.getName())) {
+                            c.setEndDate(newValue);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public void showPlays() {

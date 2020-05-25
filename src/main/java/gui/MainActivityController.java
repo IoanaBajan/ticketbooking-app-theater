@@ -6,10 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -34,7 +31,7 @@ import java.util.ResourceBundle;
 import static java.lang.Integer.parseInt;
 
 public class MainActivityController implements Initializable {
-    public static final String PASSPHRASE = "123";
+    public static final String PASSPHRASE = "123LetMeIn";
     @FXML
     private TextFlow tf_flow;
     @FXML
@@ -43,6 +40,8 @@ public class MainActivityController implements Initializable {
     private TextField passphrase;
     @FXML
     private AnchorPane anchPane;
+    @FXML
+    private TextFlow dialogPane;
     @FXML
     void buy(MouseEvent event){
         Parent view2 = null;
@@ -67,11 +66,9 @@ public class MainActivityController implements Initializable {
             String play = t.toString();
             value += play + "\n" + " \n";
         }
-        System.out.println(value);
-        System.out.println("showEvents");
         Text text = new Text(value);
         text.setFill(Color.WHITE);
-        text.setFont(new Font("Verdana", 20));
+        text.setFont(new Font("Verdana", 15));
 
         tf_flow.getChildren().clear();
         tf_flow.setLineSpacing(15);
@@ -94,11 +91,9 @@ public class MainActivityController implements Initializable {
             String concert = t.toString();
             value += concert + "\n" + " \n";
         }
-        System.out.println(value);
-        System.out.println("showEvents");
         Text text = new Text(value);
         text.setFill(Color.WHITE);
-        text.setFont(new Font("Verdana", 20));
+        text.setFont(new Font("Verdana", 15));
 
         tf_flow.getChildren().clear();
         tf_flow.setLineSpacing(15);
@@ -120,12 +115,12 @@ public class MainActivityController implements Initializable {
         Button addEvent = new Button("Add a new theater play");
         Pane buttonPane = new Pane();
         GridPane infoPane = new GridPane();
-        infoPane.setVgap(60);
+        infoPane.setVgap(50);
         infoPane.setHgap(30);
         anchPane.getChildren().add(buttonPane);
         buttonPane.getChildren().addAll(addEvent,infoPane);
-        infoPane.setLayoutY(100);
-        infoPane.setLayoutX(100);
+        infoPane.setLayoutY(80);
+        infoPane.setLayoutX(80);
         addEvent.setOnMouseClicked(ev -> {
             Label name = new Label("Event name");
             TextField add_name = new TextField();
@@ -137,15 +132,25 @@ public class MainActivityController implements Initializable {
             GridPane.setConstraints(name, 0, 0);
             GridPane.setConstraints(add_name, 1, 0);
 
-            Label date = new Label("Event date");
-            DatePicker add_date = new DatePicker();
-            date.setFont(new Font("Verdana", 20));
-            date.setStyle("{textFill: WHITE}");
+            Label date1 = new Label("Start date");
+            DatePicker add_date1 = new DatePicker();
+            date1.setFont(new Font("Verdana", 20));
+            date1.setStyle("{textFill: WHITE}");
 
-            infoPane.getChildren().add(date);
-            infoPane.getChildren().add(add_date);
-            GridPane.setConstraints(date, 0, 1);
-            GridPane.setConstraints(add_date, 1, 1);
+            infoPane.getChildren().add(date1);
+            infoPane.getChildren().add(add_date1);
+            GridPane.setConstraints(date1, 0, 1);
+            GridPane.setConstraints(add_date1, 1, 1);
+
+            Label date2 = new Label("End date");
+            DatePicker add_date2 = new DatePicker();
+            date2.setFont(new Font("Verdana", 20));
+            date2.setStyle("{textFill: WHITE}");
+
+            infoPane.getChildren().add(date2);
+            infoPane.getChildren().add(add_date2);
+            GridPane.setConstraints(date2, 2, 1);
+            GridPane.setConstraints(add_date2, 3, 1);
 
             Label maxNumberSeats = new Label("Maximum Number Of Seats");
             TextField add_maxNumberSeats = new TextField();
@@ -179,20 +184,37 @@ public class MainActivityController implements Initializable {
             GridPane.setConstraints(actors, 0, 4);
             GridPane.setConstraints(add_actors, 1, 4);
 
+            Label representations = new Label("Nr Representations");
+            TextField add_representations = new TextField();
+            representations.setFont(new Font("Verdana", 20));
+            representations.setStyle("{textFill: WHITE}");
+
+            infoPane.getChildren().add(representations);
+            infoPane.getChildren().add(add_representations);
+            GridPane.setConstraints(representations, 0, 5);
+            GridPane.setConstraints(add_representations, 1, 5);
+
 
             Button add = new Button("add");
             infoPane.getChildren().add(add);
-            GridPane.setConstraints(add, 0, 5);
+            GridPane.setConstraints(add, 0, 6);
             add.setOnMouseClicked(  x -> {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                String n = add_name.getText();
-                String u = add_date.getValue().toString();
-                int s = parseInt(add_maxNumberSeats.getText());
-                String d = add_director.getText();
-                String a = add_actors.getText();
-//                TheaterPlay e = new TheaterPlay(u,n,s,d,a);
+                String attr_name = add_name.getText();
+                String attr_date1 = add_date1.getValue().toString();
+                String attr_date2 = add_date2.getValue().toString();
+                int attr_seats = parseInt(add_maxNumberSeats.getText());
+                String attr_dir = add_director.getText();
+                String attr_act = add_actors.getText();
+                int attr_repres = parseInt(add_representations.getText());
+                TheaterPlay e = new TheaterPlay(attr_date1,attr_name,attr_seats,attr_dir,attr_act,attr_date2,attr_repres);
                 TheaterPlaysRepository theaterPlaysRepository = TheaterPlaysRepository.build(TheaterPlaysRepository.Type.DB);
-//                theaterPlaysRepository.addPlay(e);
+                theaterPlaysRepository.addPlay(e);
+                Text text = new Text("Theater Play Added Succesfully");
+                text.setFont(new Font("Verdana", 15));
+                text.setStyle("{textFill: WHITE}");
+                dialogPane.getChildren().add(text);
+
             });
         });
 
@@ -213,11 +235,9 @@ public class MainActivityController implements Initializable {
             String play = t.toString();
             value += play + "\n" + " \n";
         }
-        System.out.println(value);
-        System.out.println("showEvents");
         Text text = new Text(value);
         text.setFill(Color.WHITE);
-        text.setFont(new Font("Verdana", 20));
+        text.setFont(new Font("Verdana", 15));
 
         tf_flow.getChildren().clear();
         tf_flow.setLineSpacing(15);
@@ -232,11 +252,9 @@ public class MainActivityController implements Initializable {
             value += concert + "\n" + " \n";
         }
 
-        System.out.println(value);
-        System.out.println("showEvents");
         Text text = new Text(value);
         text.setFill(Color.WHITE);
-        text.setFont(new Font("Verdana", 20));
+        text.setFont(new Font("Verdana", 15));
 
         tf_flow.getChildren().clear();
         tf_flow.setLineSpacing(15);
@@ -251,11 +269,9 @@ public class MainActivityController implements Initializable {
             value += plays + "\n" + " \n";
         }
 
-        System.out.println(value);
-        System.out.println("showEvents");
         Text text = new Text(value);
         text.setFill(Color.WHITE);
-        text.setFont(new Font("Verdana", 20));
+        text.setFont(new Font("Verdana", 15));
 
         tf_flow.getChildren().clear();
         tf_flow.setLineSpacing(15);
