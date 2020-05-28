@@ -3,8 +3,6 @@ package service;
 import model.Concert;
 import model.TheaterPlay;
 
-import java.util.Arrays;
-
 public class Tickets implements CalculatePrice {
 
 

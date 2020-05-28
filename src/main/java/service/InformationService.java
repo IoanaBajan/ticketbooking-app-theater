@@ -132,11 +132,12 @@ public class InformationService {
                     case 4:{
                         System.out.println("1.Plays  2.Concerts");
                         SortService sort = new SortService();
-                        if (s.nextInt() == 1) {
+                        int ch = s.nextInt();
+                        if (ch == 1) {
                             for(Event e : sort.sortPlays()) {
                                 System.out.println(e.toString());
                             }
-                        } else if (s.nextInt() == 2) {
+                        } else if (ch == 2) {
                             for(Event e : sort.sortConcerts()) {
                                 System.out.println(e.toString());
                             }
@@ -146,11 +147,12 @@ public class InformationService {
                     case 5:{
                         System.out.println("1.Plays  2.Concerts");
                         SortService sort = new SortService();
-                        if (s.nextInt() == 1) {
+                        int ch = s.nextInt();
+                        if (ch == 1) {
                             for(Event e : sort.sortPlaysByName()) {
                                 System.out.println(e.toString());
                             }
-                        } else if (s.nextInt() == 2) {
+                        } else if (ch == 2) {
                             for(Event e : sort.sortConcertsByName()) {
                                 System.out.println(e.toString());
                             }

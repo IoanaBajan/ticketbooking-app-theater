@@ -2,7 +2,6 @@ package repository;
 
 import managers.DBConectionManager;
 import model.Adult;
-import model.Child;
 import service.AuditService;
 
 import java.io.IOException;

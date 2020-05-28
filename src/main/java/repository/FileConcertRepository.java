@@ -1,9 +1,7 @@
 package repository;
 
 import exceptions.InexistentFileException;
-import model.Child;
 import model.Concert;
-import model.TheaterPlay;
 import service.AuditService;
 
 import java.io.FileWriter;

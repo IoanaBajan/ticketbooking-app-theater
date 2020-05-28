@@ -1,7 +1,5 @@
 package model;
 
-import repository.DBAdultRepository;
-
 public class Admin extends User {
     private  String securityPassPhrase;
     public Admin(String username, String password,String securityPassPhrase) {

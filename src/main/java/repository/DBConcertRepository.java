@@ -2,7 +2,6 @@ package repository;
 
 import managers.DBConectionManager;
 import model.Concert;
-import model.TheaterPlay;
 import service.AuditService;
 
 import java.io.IOException;

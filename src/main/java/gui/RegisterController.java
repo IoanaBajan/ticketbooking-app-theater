@@ -196,13 +196,6 @@ public class RegisterController implements Initializable {
                         String user = add_name.getText();
                         DBStudentRepository S = new DBStudentRepository();
                         DBAdultRepository A = new DBAdultRepository();
-
-//                        if ((S.findUserByName(user).isPresent()) || (A.findUserInDB(user)!=null)) {
-//                            Child client = new Child(username, password, first_name, age, 1);
-//                            LoginService L = new LoginService();
-//                            L.register(client);
-//                            System.out.println(client.toString());
-//                        }
                     });
                 }else if (c2.isSelected()) {
                     g.getChildren().clear();

@@ -8,7 +8,6 @@ public class Client extends User{
         this.firstName = firstName;
     }
 
-
     public Client() {
         super();
     }
@@ -17,8 +16,6 @@ public class Client extends User{
         super(username, password);
         this.firstName = firstName;
     }
-
-
 
     public String getFirstName() {
         return firstName;

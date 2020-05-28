@@ -119,10 +119,11 @@ public class BuyController implements Initializable {
     void calcPrice(User client, Event event){
         BuyService buy = new BuyService();
         PlaceOrderService p = new PlaceOrderService();
+
         int seat = getSeats();
         LocalDate ev_date = eventDate.getValue();
         TextFlow t = new TextFlow();
-        System.out.println(ev_date.toString() + event.getName());
+
         if( !DBOrdersRepository.getInstance().isSeatAvailable(seat,ev_date.toString(),event.getName())) {
             message.getChildren().add(new Text("seat is not available"));
             paneSeats.getChildren().add(t);
@@ -205,8 +206,8 @@ public class BuyController implements Initializable {
             for(int j = 0; j<8; j++){
                 Integer text = (j + 1)+(i*10);
                 Button b =new Button(text.toString());
-                b.setLayoutY(14 + (i*33));
-                b.setLayoutX(8+(j*40));
+                b.setLayoutY(14 + (i * 33));
+                b.setLayoutX(8+(j * 40));
                 paneSeats.getChildren().add(b);
                 b.setOnMouseClicked(ev->setSeats(text));
             }

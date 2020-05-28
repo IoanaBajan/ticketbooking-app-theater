@@ -7,7 +7,6 @@ import service.AuditService;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Optional;
 
 public class DBTheaterPlaysRepository implements TheaterPlaysRepository {
     @Override
